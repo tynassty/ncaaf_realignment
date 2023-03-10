@@ -14,3 +14,6 @@ class School:
     def get_longitude(self):
         return self.longitude
 
+    def __str__(self):
+        return self.name
+

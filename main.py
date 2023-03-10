@@ -2,6 +2,7 @@
 import copy
 import math
 import random
+import statistics
 import urllib.request
 
 from School import School
@@ -41,7 +42,7 @@ def create_schools():
     return list_of_schools
 
 
-def total_distance(schools: list):
+def group_total_distance(schools: list):
     """
     takes a list of schools and calculates the total distance between every pair of schools in the list
     :param schools: a list of schools
@@ -55,19 +56,19 @@ def total_distance(schools: list):
     return distance
 
 
-def total_cost(state):
+def state_total_distance(state):
     """
-    returns the total cost of a state
+    returns the total total_cost of a state
     :param state: the list of groups, where each group is a list of schools
-    :return: the total cost
+    :return: the total total_cost
     """
-    cost = 0.0
+    total_cost = 0.0
     for group in state:
-        cost += total_distance(group)
-    return cost
+        total_cost += group_total_distance(group)
+    return total_cost
 
 
-def initialize_state(schools, k, f):
+def initial_state(schools, k):
     state = [[] for _ in range(k)]
     for school in schools:
         group = random.randint(0, k-1)
@@ -75,13 +76,8 @@ def initialize_state(schools, k, f):
     return state
 
 
-def random_swap(state):
-    state_copy = state.copy()
-    state_copy[0].append("dog")
-    print(state, state_copy)
-
-
-def neighbors(state, k):
+def neighbors(state):
+    k = len(state)
     neighbor_states = []
     for i in range(k):
         for j in range(k):
@@ -94,18 +90,62 @@ def neighbors(state, k):
     return neighbor_states
 
 
-if __name__ == "__main__":
-    # schools = create_schools()
-    # k = 10
-    #
-    # states = []
-    # for i in range(10):
-    #     state = initialize_state(schools, 2, total_distance)
-    #     states.append(state)
-    # for state in states:
-    #     print(total_cost(state))
+def hill_climb(schools, k, f, max_iter=100):
+    current_state = initial_state(schools, k)
+    current_cost = state_total_distance(current_state)
 
-    print(neighbors([["a", "b"], ["c", "d"]], 2))
+    i = 0
+
+    while i < max_iter:
+        if i % 10 == 0:
+            print("i:", "{:03d}".format(i), "current cost:", f"{current_cost:,.3f}")
+            counts = [len(group) for group in current_state]
+            print(counts)
+        neighbor_states = neighbors(current_state)
+
+        best_state = current_state
+        best_cost = current_cost
+        for neighbor_state in neighbor_states:
+            neighbor_cost = f(neighbor_state)
+            if neighbor_cost < best_cost:
+                best_state = neighbor_state
+                best_cost = neighbor_cost
+
+        if best_cost == current_cost:
+            print("LOCAL MINIMUM REACHED on iteration", "{:03d}".format(i))
+            break
+
+        current_state = best_state
+        current_cost = best_cost
+
+        i += 1
+
+    return current_state
+
+
+def cost_function(state):
+    total_distance = state_total_distance(state)
+
+    counts = []
+    for group in state:
+        counts.append(len(group))
+
+    # return total_distance + (statistics.stdev(counts) * 1000)
+    return total_distance + ((max(counts) - min(counts)) * 1000)
+
+
+if __name__ == "__main__":
+    schools = create_schools()
+    k = 13
+
+    result_state = hill_climb(schools, k, state_total_distance, 1000)
+    for group in result_state:
+        print("\nGROUP:")
+        school_name_list = []
+        for school in group:
+            school_name_list.append(school.get_name())
+        school_name_list.sort()
+        print(school_name_list)
 
 
 
