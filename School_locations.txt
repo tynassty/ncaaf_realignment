@@ -129,3 +129,6 @@ Western Kentucky, 36.9685219, -86.4808043
 Western Michigan, 42.2917069, -85.5872286
 Wisconsin, 43.0721661, -89.4007501
 Wyoming, 41.3113669, -105.5911007
+Jacksonville State, 33.822, -85.766
+Sam Houston, 30.713889, -95.547222
+Kennesaw State, 34.038, -84.583
