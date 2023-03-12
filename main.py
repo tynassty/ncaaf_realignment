@@ -8,9 +8,6 @@ import matplotlib.pyplot as plt
 
 from School import School
 
-COLORS = ['purple', 'green', 'blue', 'pink', 'brown', 'red', 'teal', 'orange', 'magenta', 'tan', 'cyan', 'grey',
-          'lavender', 'maroon']
-
 
 def great_circle_distance(lat1, lon1, lat2, lon2, miles=True):
     """
@@ -39,10 +36,24 @@ def great_circle_distance(lat1, lon1, lat2, lon2, miles=True):
 
 def create_schools():
     list_of_schools = []
+    dict_of_schools = {}
     f = open("School_locations.txt")
     for line in f:
         line = line.split(", ")
-        list_of_schools.append(School(line[0], float(line[1]), float(line[2][:-2])))
+        school = School(line[0], float(line[1]), float(line[2][:-2]))
+        list_of_schools.append(school)
+        dict_of_schools.update({school.get_name(): school})
+    f.close()
+
+    f = open("rivalries.txt")
+    for line in f:
+        line = line.split(", ")
+        school = dict_of_schools.get(line[0])
+        rival = dict_of_schools.get(line[1][:-1])
+        school.add_rival(rival)
+        rival.add_rival(school)
+    f.close()
+
     return list_of_schools
 
 
@@ -121,7 +132,8 @@ def random_swap_neighbors(state, batch_size=100):
     return neighbor_states
 
 
-def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, buffer=50):
+def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, buffer=50, minimize=True,
+               batch_size=100, print_freq=10):
     current_state = initial_state(schools, k)
     current_cost = f(current_state)
 
@@ -133,8 +145,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     while iteration < max_iter:
 
         if print_info:
-            if iteration % 10 == 0:
-                print("iteration:", f"{iteration:03d}", "current cost:", f"{current_cost:,.0f}",
+            if iteration % print_freq == 0:
+                print("iteration:", f"{iteration:04d}", "current cost:", f"{current_cost:,.0f}",
                       "consecutive failures:", f"{consecutive_optimum:03d}")
                 counts = [len(group) for group in current_state]
                 distances = [f"{f([grp]):,.0f}" for grp in current_state]
@@ -146,16 +158,21 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
             for j in range(len(current_state)):
                 data_to_plot[j].append(group_total_distance(current_state[j]))
 
-        neighbor_states = random_swap_neighbors(current_state)
+        neighbor_states = random_swap_neighbors(current_state, batch_size=batch_size)
         neighbor_states.append(initial_state(schools, k))
 
         best_state = current_state
         best_cost = current_cost
         for neighbor_state in neighbor_states:
             neighbor_cost = f(neighbor_state)
-            if neighbor_cost < best_cost:
-                best_state = neighbor_state
-                best_cost = neighbor_cost
+            if minimize:
+                if neighbor_cost < best_cost:
+                    best_state = neighbor_state
+                    best_cost = neighbor_cost
+            else:
+                if neighbor_cost > best_cost:
+                    best_state = neighbor_state
+                    best_cost = neighbor_cost
 
         if best_cost == current_cost:
             consecutive_optimum += 1
@@ -191,11 +208,6 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     return current_state
 
 
-def cost_function(state):
-    total_distance = state_total_distance(state)
-    return total_distance
-
-
 def one_small_group_cost_function(state):
     """cost function that only optimizes one group"""
     costs = [group_total_distance(group) for group in state]
@@ -224,12 +236,38 @@ def noisy_state_total_distance(state):
     return std + (0.1 * random_factor * std)
 
 
+def group_rival_count(schools: list):
+    count = 0
+    for i in range(len(schools)):
+        for j in range(i, len(schools)):
+            if schools[i].is_rival(schools[j]):
+                count += 1
+    return count
+
+
+def state_rival_count(state):
+    total_cost = 0.0
+    for group in state:
+        total_cost += group_rival_count(group)
+    return total_cost
+
+
+def cost_function(state):
+    total_distance = state_total_distance(state)
+    rival_count = state_rival_count(state)
+    # print(total_distance, rival_count)
+    if rival_count == 0:
+        return float('inf')
+    else:
+        return total_distance - (rival_count * 500)
+
+
 def run():
     schools = create_schools()
     k = 10
 
-    result_state = hill_climb(schools, k, state_total_distance, max_iter=1000, buffer=200, show_map=True,
-                              show_graph=True)
+    result_state = hill_climb(schools, k, cost_function, max_iter=200000, buffer=20000, show_map=True,
+                              show_graph=True, print_info=True, minimize=True, batch_size=1, print_freq=1000)
     for i in range(len(result_state)):
         group = result_state[i]
         print("\nGROUP " + str(i) + ":")
@@ -242,11 +280,4 @@ def run():
 
 if __name__ == "__main__":
     run()
-
-
-
-
-
-
-
 
