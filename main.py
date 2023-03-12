@@ -134,7 +134,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
 
         if print_info:
             if iteration % 10 == 0:
-                print("iteration:", "{:03d}".format(iteration), "current cost:", f"{current_cost:,.0f}")
+                print("iteration:", f"{iteration:03d}", "current cost:", f"{current_cost:,.0f}",
+                      "consecutive failures:", f"{consecutive_optimum:03d}")
                 counts = [len(group) for group in current_state]
                 distances = [f"{f([grp]):,.0f}" for grp in current_state]
                 print(distances)
@@ -192,13 +193,7 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
 
 def cost_function(state):
     total_distance = state_total_distance(state)
-
-    counts = []
-    for group in state:
-        counts.append(len(group))
-
-    # return total_distance + (statistics.stdev(counts) * 1000)
-    return total_distance + ((max(counts) - min(counts)) * 1000)
+    return total_distance
 
 
 def one_small_group_cost_function(state):
@@ -208,15 +203,32 @@ def one_small_group_cost_function(state):
 
 
 def state_total_distance_squared(state):
+    """returns square of state total distance"""
     return state_total_distance(state) ** 2
+
+
+def state_total_distance_root(state):
+    """returns square root of state total distance"""
+    return math.sqrt(state_total_distance(state))
+
+
+def state_total_distance_except_one(state):
+    costs = [group_total_distance(group) for group in state]
+    costs.sort()
+    return sum(costs[:-1])
+
+
+def noisy_state_total_distance(state):
+    random_factor = random.random() - 0.5
+    std = state_total_distance(state)
+    return std + (0.1 * random_factor * std)
 
 
 def run():
     schools = create_schools()
+    k = 10
 
-    k = 67
-
-    result_state = hill_climb(schools, k, state_total_distance_squared, max_iter=1000, buffer=200, show_map=False,
+    result_state = hill_climb(schools, k, state_total_distance, max_iter=1000, buffer=200, show_map=True,
                               show_graph=True)
     for i in range(len(result_state)):
         group = result_state[i]
