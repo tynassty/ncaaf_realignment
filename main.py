@@ -34,10 +34,10 @@ def great_circle_distance(lat1, lon1, lat2, lon2, miles=True):
     return c * r
 
 
-def create_schools():
+def create_schools(schools_file, rivals_file=None, return_dict=False):
     list_of_schools = []
     dict_of_schools = {}
-    f = open("School_locations.txt")
+    f = open(schools_file)
     for line in f:
         line = line.split(", ")
         school = School(line[0], float(line[1]), float(line[2][:-2]))
@@ -45,16 +45,19 @@ def create_schools():
         dict_of_schools.update({school.get_name(): school})
     f.close()
 
-    f = open("rivalries.txt")
-    for line in f:
-        line = line.split(", ")
-        school = dict_of_schools.get(line[0])
-        rival = dict_of_schools.get(line[1][:-1])
-        school.add_rival(rival)
-        rival.add_rival(school)
-    f.close()
+    if rivals_file:
+        f = open(rivals_file)
+        for line in f:
+            line = line.split(", ")
+            school = dict_of_schools.get(line[0])
+            rival = dict_of_schools.get(line[1][:-1])
+            school.add_rival(rival)
+        f.close()
 
-    return list_of_schools
+    if return_dict:
+        return dict_of_schools
+    else:
+        return list_of_schools
 
 
 def group_total_distance(schools: list):
@@ -116,6 +119,11 @@ def random_swap_neighbors(state, batch_size=100):
     k = len(state)
     neighbor_states = []
     swaps = 0
+    uneven_neighbor_states = random_swap_neighbors_uneven(state, batch_size=batch_size//4)
+    neighbor_states.extend(uneven_neighbor_states)
+    swaps += len(neighbor_states)
+    # print(swaps)
+
     while swaps < batch_size:
         i = random.randint(0, k-1)
         j = random.randint(0, k-1)
@@ -129,6 +137,34 @@ def random_swap_neighbors(state, batch_size=100):
             neighbor_state[i].append(temp2)
             neighbor_states.append(neighbor_state)
             swaps += 1
+    # print(swaps)
+    return neighbor_states
+
+
+def random_swap_neighbors_uneven(state, batch_size=100):
+    k = len(state)
+    neighbor_states = []
+    swaps = 0
+    max_size = 0
+    for i in range(len(state)):
+        if len(state[i]) > max_size:
+            max_size = len(state[i])
+    for i in range(len(state)):
+        if len(state[i]) == max_size:
+            jrange = list(range(len(state)))
+            random.shuffle(jrange)
+            for j in jrange:
+                if len(state[j]) < max_size:
+                    irange = list(range(len(state[i])))
+                    random.shuffle(irange)
+                    for ii in irange:
+                        neighbor_state = copy.deepcopy(state)
+                        temp = neighbor_state[i].pop(ii)
+                        neighbor_state[j].append(temp)
+                        neighbor_states.append(neighbor_state)
+                        swaps += 1
+                        if swaps >= batch_size:
+                            return neighbor_states
     return neighbor_states
 
 
@@ -151,13 +187,14 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
                 counts = [len(group) for group in current_state]
                 distances = [f"{f([grp]):,.0f}" for grp in current_state]
                 print(distances)
-                # print(counts)
+                print(counts)
 
         if show_graph:
             x_axis.append(iteration)
             for j in range(len(current_state)):
-                data_to_plot[j].append(group_total_distance(current_state[j]))
+                data_to_plot[j].append(f([current_state[j]]))
 
+        # neighbor_states = random_swap_neighbors_uneven(current_state, batch_size=batch_size)
         neighbor_states = random_swap_neighbors(current_state, batch_size=batch_size)
         neighbor_states.append(initial_state(schools, k))
 
@@ -201,8 +238,11 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
             grp = current_state[index]
             lat = [sch.get_latitude() for sch in grp]
             lon = [sch.get_longitude() for sch in grp]
-            plt.plot(lon, lat, 'o')
+            plt.plot(lon, lat, 'o', label=str(index))
         plt.title("map by conference")
+        plt.legend()
+        plt.xlim([-160, -65])
+        plt.ylim([20, 50])
         plt.show()
 
     return current_state
@@ -239,7 +279,7 @@ def noisy_state_total_distance(state):
 def group_rival_count(schools: list):
     count = 0
     for i in range(len(schools)):
-        for j in range(i, len(schools)):
+        for j in range(len(schools)):
             if schools[i].is_rival(schools[j]):
                 count += 1
     return count
@@ -256,18 +296,15 @@ def cost_function(state):
     total_distance = state_total_distance(state)
     rival_count = state_rival_count(state)
     # print(total_distance, rival_count)
-    if rival_count == 0:
-        return float('inf')
-    else:
-        return total_distance - (rival_count * 500)
+    return total_distance - (rival_count * 500)
 
 
 def run():
-    schools = create_schools()
+    schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
     k = 10
 
-    result_state = hill_climb(schools, k, cost_function, max_iter=200000, buffer=20000, show_map=True,
-                              show_graph=True, print_info=True, minimize=True, batch_size=1, print_freq=1000)
+    result_state = hill_climb(schools, k, state_total_distance, max_iter=2000, buffer=200, show_map=True,
+                              show_graph=True, print_info=True, minimize=True, batch_size=100, print_freq=10)
     for i in range(len(result_state)):
         group = result_state[i]
         print("\nGROUP " + str(i) + ":")
@@ -278,6 +315,50 @@ def run():
         print(school_name_list)
 
 
+def run_nwsl():
+    schools = create_schools("nwsl.txt")
+    k = 6
+
+    result_state = hill_climb(schools, k, state_total_distance, max_iter=2000, buffer=200, show_map=True,
+                              show_graph=False, print_info=True, minimize=True, batch_size=100, print_freq=10)
+
+    for i in range(len(result_state)):
+        group = result_state[i]
+        print("\nGROUP " + str(i) + ":")
+        school_name_list = []
+        for school in group:
+            school_name_list.append(school.get_name())
+        school_name_list.sort()
+        print(school_name_list)
+
+
+def run_with_divisions():
+    schools = create_schools("ncaaf.txt", "rivalries.txt")
+    k = 10
+
+    result_state = hill_climb(schools, k, cost_function, max_iter=2000, buffer=200, show_map=True,
+                              show_graph=True, print_info=True, minimize=True, batch_size=100, print_freq=10)
+
+    conferences = [[] for _ in range(len(result_state))]
+    for i in range(len(result_state)):
+        conference = result_state[i]
+        conferences[i] = hill_climb(conference, 2, cost_function, max_iter=2000, buffer=200, show_map=True,
+                                    show_graph=False, print_info=True, minimize=True, batch_size=100, print_freq=10)
+
+    for i in range(len(conferences)):
+        conference = conferences[i]
+        for j in range(len(conference)):
+            division = conference[j]
+            print("\nGROUP " + str(i) + " DIVISION " + str(j) + ":")
+            school_name_list = []
+            for school in division:
+                school_name_list.append(school.get_name())
+            school_name_list.sort()
+            print(school_name_list)
+
+
 if __name__ == "__main__":
     run()
 
+    # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
+    # print(rsnu)

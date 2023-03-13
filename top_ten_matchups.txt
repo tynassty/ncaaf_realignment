@@ -1,0 +1,1338 @@
+Louisiana, Arkansas State
+Georgia Tech, Georgia
+New Mexico, New Mexico State
+Tulane, LSU
+Virginia Tech, Virginia
+Marshall, Ohio
+Auburn, Georgia
+Utah, Utah State
+Colorado State, Wyoming
+Arizona State, Arizona
+North Texas, New Mexico State
+Pittsburgh, West Virginia
+Memphis, Southern Miss
+Rice, Texas
+Troy, Louisiana
+Syracuse, Pittsburgh
+Louisiana–Monroe, Louisiana
+Clemson, South Carolina
+Arkansas, Texas A&M
+Oklahoma State, Oklahoma
+Bowling Green, Toledo
+Miami (OH), Cincinnati
+Houston, Tulsa
+UTEP, New Mexico State
+Arkansas State, Louisiana
+Alabama, Tennessee
+Florida, Georgia
+Tennessee, Vanderbilt
+Texas Tech, Baylor
+Iowa, Minnesota
+Wyoming, Colorado State
+Baylor, Texas
+Arizona, Arizona State
+Kent State, Bowling Green
+Duke, North Carolina
+Ohio, Bowling Green
+SMU, TCU
+East Carolina, Southern Miss
+BYU, Utah
+New Mexico State, New Mexico
+North Carolina, Virginia
+Maryland, Virginia
+Middle Tennessee, Florida Atlantic
+Notre Dame, Navy
+Penn State, Pittsburgh
+Ole Miss, Mississippi State
+LSU, Mississippi State
+Boston College, Syracuse
+Minnesota, Wisconsin
+Navy, Army
+South Carolina, Clemson
+Virginia, North Carolina
+Oklahoma, Oklahoma State
+Michigan State, Michigan
+Colorado, Colorado State
+San Jose State, Stanford
+Central Michigan, Eastern Michigan
+Ball State, Eastern Michigan
+Eastern Michigan, Ball State
+Western Michigan, Toledo
+Cincinnati, Miami (OH)
+Louisiana Tech, Louisiana
+Georgia, Auburn
+Michigan, Ohio State
+Texas, Baylor
+Texas A&M, Texas
+Illinois, Northwestern
+Stanford, California
+NC State, Wake Forest
+Kentucky, Tennessee
+USC, California
+Mississippi State, Ole Miss
+Oregon, Oregon State
+Utah State, Utah
+Northwestern, Illinois
+Purdue, Indiana
+Ohio State, Michigan
+Wake Forest, NC State
+San Diego State, New Mexico
+Akron, Kent State
+Toledo, Bowling Green
+Hawaii, Fresno State
+Tulsa, Arkansas
+Temple, Penn State
+Southern Miss, Memphis
+West Virginia, Pittsburgh
+TCU, Baylor
+Fresno State, San Jose State
+Wisconsin, Minnesota
+Indiana, Purdue
+UCLA, California
+Washington, Oregon
+California, USC
+Oregon State, Oregon
+Washington State, Washington
+Rutgers, Syracuse
+UAB, Southern Miss
+Louisville, Cincinnati
+Appalachian State, Louisiana
+Nebraska, Kansas
+Vanderbilt, Tennessee
+Kansas State, Kansas
+Iowa State, Kansas State
+Air Force, Colorado State
+Kansas, Kansas State
+Texas State, Arkansas State
+Florida Atlantic, FIU
+Army, Navy
+Georgia State, Appalachian State
+Missouri, Kansas
+Nevada, UNLV
+UNLV, Nevada
+Northern Illinois, Toledo
+FIU, Florida Atlantic
+Coastal Carolina, Appalachian State
+Florida State, Florida
+Miami (FL), Florida State
+Western Kentucky, Middle Tennessee
+Georgia Southern, Appalachian State
+South Alabama, Arkansas State
+Charlotte, Florida Atlantic
+Boise State, Fresno State
+Buffalo, Kent State
+UCF, East Carolina
+South Florida, Cincinnati
+UConn, South Florida
+Old Dominion, Marshall
+UMass, Boston College
+Liberty, UMass
+James Madison, Appalachian State
+UTSA, Louisiana Tech
+Louisiana, Louisiana–Monroe
+Georgia Tech, Duke
+New Mexico, Wyoming
+Tulane, Ole Miss
+Virginia Tech, West Virginia
+Marshall, Miami (OH)
+Auburn, Mississippi State
+Utah, BYU
+Colorado State, Colorado
+Arizona State, Oregon State
+North Texas, UTEP
+Pittsburgh, Penn State
+Memphis, Ole Miss
+Rice, SMU
+Troy, Arkansas State
+Syracuse, Penn State
+Louisiana–Monroe, Arkansas State
+Clemson, Wake Forest
+Arkansas, Texas
+Oklahoma State, Kansas
+Bowling Green, Kent State
+Miami (OH), Kent State
+Houston, Rice
+UTEP, New Mexico
+Arkansas State, Louisiana–Monroe
+Alabama, Mississippi State
+Florida, Auburn
+Tennessee, Kentucky
+Texas Tech, Texas
+Iowa, Wisconsin
+Wyoming, Utah
+Baylor, TCU
+Arizona, New Mexico
+Kent State, Miami (OH)
+Duke, Wake Forest
+Ohio, Kent State
+SMU, Rice
+East Carolina, NC State
+BYU, Utah State
+New Mexico State, UTEP
+North Carolina, Wake Forest
+Maryland, North Carolina
+Middle Tennessee, FIU
+Notre Dame, USC
+Penn State, Syracuse
+Ole Miss, LSU
+LSU, Ole Miss
+Boston College, Army
+Minnesota, Iowa
+Navy, Notre Dame
+South Carolina, Georgia
+Virginia, Virginia Tech
+Oklahoma, Texas
+Michigan State, Indiana
+Colorado, Missouri
+San Jose State, Fresno State
+Central Michigan, Toledo
+Ball State, Toledo
+Eastern Michigan, Central Michigan
+Western Michigan, Bowling Green
+Cincinnati, Louisville
+Louisiana Tech, Southern Miss
+Georgia, Georgia Tech
+Michigan, Minnesota
+Texas, Texas A&M
+Texas A&M, Baylor
+Illinois, Ohio State
+Stanford, USC
+NC State, North Carolina
+Kentucky, Vanderbilt
+USC, Stanford
+Mississippi State, LSU
+Oregon, Washington
+Utah State, BYU
+Northwestern, Wisconsin
+Purdue, Illinois
+Ohio State, Illinois
+Wake Forest, North Carolina
+San Diego State, Air Force
+Akron, Ohio
+Toledo, Western Michigan
+Hawaii, San Jose State
+Tulsa, Oklahoma State
+Temple, Boston College
+Southern Miss, East Carolina
+West Virginia, Syracuse
+TCU, SMU
+Fresno State, Hawaii
+Wisconsin, Northwestern
+Indiana, Ohio State
+UCLA, Stanford
+Washington, Washington State
+California, Stanford
+Oregon State, Washington State
+Washington State, Oregon State
+Rutgers, West Virginia
+UAB, Memphis
+Louisville, Memphis
+Appalachian State, East Carolina
+Nebraska, Iowa State
+Vanderbilt, Ole Miss
+Kansas State, Iowa State
+Iowa State, Missouri
+Air Force, Wyoming
+Kansas, Missouri
+Texas State, Louisiana
+Florida Atlantic, Middle Tennessee
+Army, Air Force
+Georgia State, Georgia Southern
+Missouri, Iowa State
+Nevada, Fresno State
+UNLV, San Diego State
+Northern Illinois, Western Michigan
+FIU, Middle Tennessee
+Coastal Carolina, Georgia Southern
+Florida State, Miami (FL)
+Miami (FL), Florida
+Western Kentucky, Florida Atlantic
+Georgia Southern, Georgia State
+South Alabama, Louisiana
+Charlotte, FIU
+Boise State, Nevada
+Buffalo, Ohio
+UCF, Memphis
+South Florida, UConn
+UConn, Cincinnati
+Old Dominion, Florida Atlantic
+UMass, Akron
+Liberty, New Mexico State
+James Madison, Arkansas State
+UTSA, North Texas
+Louisiana, Louisiana Tech
+Georgia Tech, Auburn
+New Mexico, Colorado State
+Tulane, Mississippi State
+Virginia Tech, NC State
+Marshall, Kent State
+Auburn, Georgia Tech
+Utah, Wyoming
+Colorado State, Utah
+Arizona State, Washington State
+North Texas, Tulsa
+Pittsburgh, Syracuse
+Memphis, Louisville
+Rice, Baylor
+Troy, Louisiana–Monroe
+Syracuse, West Virginia
+Louisiana–Monroe, North Texas
+Clemson, NC State
+Arkansas, SMU
+Oklahoma State, Kansas State
+Bowling Green, Ohio
+Miami (OH), Ohio
+Houston, SMU
+UTEP, Arizona
+Arkansas State, Memphis
+Alabama, LSU
+Florida, Kentucky
+Tennessee, Alabama
+Texas Tech, Texas A&M
+Iowa, Purdue
+Wyoming, BYU
+Baylor, Texas A&M
+Arizona, Oregon
+Kent State, Ohio
+Duke, Georgia Tech
+Ohio, Miami (OH)
+SMU, Baylor
+East Carolina, Cincinnati
+BYU, Wyoming
+New Mexico State, Utah State
+North Carolina, Duke
+Maryland, NC State
+Middle Tennessee, North Texas
+Notre Dame, Purdue
+Penn State, West Virginia
+Ole Miss, Vanderbilt
+LSU, Tulane
+Boston College, Temple
+Minnesota, Michigan
+Navy, Air Force
+South Carolina, North Carolina
+Virginia, Maryland
+Oklahoma, Kansas State
+Michigan State, Purdue
+Colorado, Kansas
+San Jose State, Utah State
+Central Michigan, Western Michigan
+Ball State, Central Michigan
+Eastern Michigan, Western Michigan
+Western Michigan, Central Michigan
+Cincinnati, Memphis
+Louisiana Tech, Arkansas State
+Georgia, Florida
+Michigan, Illinois
+Texas, Oklahoma
+Texas A&M, TCU
+Illinois, Michigan
+Stanford, UCLA
+NC State, Clemson
+Kentucky, Georgia
+USC, Notre Dame
+Mississippi State, Alabama
+Oregon, Washington State
+Utah State, Colorado State
+Northwestern, Minnesota
+Purdue, Iowa
+Ohio State, Indiana
+Wake Forest, Duke
+San Diego State, Wyoming
+Akron, Miami (OH)
+Toledo, Northern Illinois
+Hawaii, San Diego State
+Tulsa, Houston
+Temple, Rutgers
+Southern Miss, Alabama
+West Virginia, Penn State
+TCU, Texas
+Fresno State, San Diego State
+Wisconsin, Iowa
+Indiana, Northwestern
+UCLA, USC
+Washington, California
+California, Washington
+Oregon State, Washington
+Washington State, Oregon
+Rutgers, Temple
+UAB, East Carolina
+Louisville, Kentucky
+Appalachian State, Georgia Southern
+Nebraska, Missouri
+Vanderbilt, Kentucky
+Kansas State, Oklahoma
+Iowa State, Kansas
+Air Force, Army
+Kansas, Nebraska
+Texas State, Louisiana–Monroe
+Florida Atlantic, North Texas
+Army, Notre Dame
+Georgia State, Troy
+Missouri, Kansas State
+Nevada, San Jose State
+UNLV, Hawaii
+Northern Illinois, Ball State
+FIU, Western Kentucky
+Coastal Carolina, Georgia State
+Florida State, NC State
+Miami (FL), Pittsburgh
+Western Kentucky, FIU
+Georgia Southern, South Alabama
+South Alabama, Troy
+Charlotte, Middle Tennessee
+Boise State, Utah State
+Buffalo, Miami (OH)
+UCF, South Florida
+South Florida, UCF
+UConn, Temple
+Old Dominion, FIU
+UMass, Buffalo
+Liberty, Old Dominion
+James Madison, Coastal Carolina
+UTSA, Rice
+Louisiana, Southern Miss
+Georgia Tech, Clemson
+New Mexico, UTEP
+Tulane, Georgia Tech
+Virginia Tech, Miami (FL)
+Marshall, Toledo
+Auburn, Florida
+Utah, Colorado State
+Colorado State, Utah State
+Arizona State, UTEP
+North Texas, Memphis
+Pittsburgh, Notre Dame
+Memphis, Mississippi State
+Rice, Texas A&M
+Troy, Middle Tennessee
+Syracuse, Boston College
+Louisiana–Monroe, Troy
+Clemson, Georgia Tech
+Arkansas, TCU
+Oklahoma State, Tulsa
+Bowling Green, Miami (OH)
+Miami (OH), Bowling Green
+Houston, Texas A&M
+UTEP, Arizona State
+Arkansas State, Louisiana Tech
+Alabama, Vanderbilt
+Florida, LSU
+Tennessee, Ole Miss
+Texas Tech, TCU
+Iowa, Northwestern
+Wyoming, New Mexico
+Baylor, Rice
+Arizona, Washington State
+Kent State, Western Michigan
+Duke, NC State
+Ohio, Western Michigan
+SMU, Texas A&M
+East Carolina, Memphis
+BYU, Colorado State
+New Mexico State, North Texas
+North Carolina, NC State
+Maryland, Clemson
+Middle Tennessee, Western Kentucky
+Notre Dame, Pittsburgh
+Penn State, Maryland
+Ole Miss, Arkansas
+LSU, Alabama
+Boston College, Clemson
+Minnesota, Northwestern
+Navy, Duke
+South Carolina, Wake Forest
+Virginia, Duke
+Oklahoma, Kansas State
+Michigan State, Notre Dame
+Colorado, Nebraska
+San Jose State, California
+Central Michigan, Ball State
+Ball State, Western Michigan
+Eastern Michigan, Toledo
+Western Michigan, Eastern Michigan
+Cincinnati, Tulsa
+Louisiana Tech, North Texas
+Georgia, Vanderbilt
+Michigan, Michigan State
+Texas, Rice
+Texas A&M, Rice
+Illinois, Purdue
+Stanford, Washington
+NC State, Duke
+Kentucky, Florida
+USC, UCLA
+Mississippi State, Auburn
+Oregon, Stanford
+Utah State, Wyoming
+Northwestern, Purdue
+Purdue, Wisconsin
+Ohio State, Wisconsin
+Wake Forest, Clemson
+San Diego State, BYU
+Akron, Bowling Green
+Toledo, Ball State
+Hawaii, BYU
+Tulsa, Cincinnati
+Temple, Pittsburgh
+Southern Miss, Tulane
+West Virginia, Maryland
+TCU, Texas A&M
+Fresno State, Utah State
+Wisconsin, Illinois
+Indiana, Iowa
+UCLA, Washington
+Washington, Oregon State
+California, UCLA
+Oregon State, Stanford
+Washington State, California
+Rutgers, Army
+UAB, Marshall
+Louisville, Southern Miss
+Appalachian State, Georgia State
+Nebraska, Kansas State
+Vanderbilt, Alabama
+Kansas State, Missouri
+Iowa State, Nebraska
+Air Force, Navy
+Kansas, Oklahoma
+Texas State, Georgia State
+Florida Atlantic, Western Kentucky
+Army, Boston College
+Georgia State, Arkansas State
+Missouri, Nebraska
+Nevada, Hawaii
+UNLV, San Jose State
+Northern Illinois, Central Michigan
+FIU, North Texas
+Coastal Carolina, Troy
+Florida State, Wake Forest
+Miami (FL), Virginia Tech
+Western Kentucky, North Texas
+Georgia Southern, Troy
+South Alabama, Georgia Southern
+Charlotte, Marshall
+Boise State, Hawaii
+Buffalo, Akron
+UCF, Tulane
+South Florida, East Carolina
+UConn, Rutgers
+Old Dominion, Western Kentucky
+UMass, UConn
+Liberty, Syracuse
+James Madison, Georgia Southern
+UTSA, UTEP
+Louisiana, Tulane
+Georgia Tech, North Carolina
+New Mexico, BYU
+Tulane, Vanderbilt
+Virginia Tech, North Carolina
+Marshall, Western Michigan
+Auburn, Alabama
+Utah, Colorado
+Colorado State, BYU
+Arizona State, USC
+North Texas, SMU
+Pittsburgh, Miami (FL)
+Memphis, Tulane
+Rice, TCU
+Troy, North Texas
+Syracuse, Rutgers
+Louisiana–Monroe, Middle Tennessee
+Clemson, Maryland
+Arkansas, Baylor
+Oklahoma State, Iowa State
+Bowling Green, Western Michigan
+Miami (OH), Western Michigan
+Houston, Texas Tech
+UTEP, BYU
+Arkansas State, Troy
+Alabama, Auburn
+Florida, Florida State
+Tennessee, Auburn
+Texas Tech, Oklahoma State
+Iowa, Illinois
+Wyoming, Utah State
+Baylor, SMU
+Arizona, UCLA
+Kent State, Toledo
+Duke, Virginia
+Ohio, Toledo
+SMU, Arkansas
+East Carolina, West Virginia
+BYU, New Mexico
+New Mexico State, Arizona State
+North Carolina, Maryland
+Maryland, Wake Forest
+Middle Tennessee, Arkansas State
+Notre Dame, Michigan State
+Penn State, Temple
+Ole Miss, Alabama
+LSU, Florida
+Boston College, Pittsburgh
+Minnesota, Purdue
+Navy, Pittsburgh
+South Carolina, NC State
+Virginia, NC State
+Oklahoma, Missouri
+Michigan State, Northwestern
+Colorado, Utah
+San Jose State, Hawaii
+Central Michigan, Northern Illinois
+Ball State, Northern Illinois
+Eastern Michigan, Northern Illinois
+Western Michigan, Northern Illinois
+Cincinnati, Houston
+Louisiana Tech, UTEP
+Georgia, Kentucky
+Michigan, Northwestern
+Texas, TCU
+Texas A&M, SMU
+Illinois, Wisconsin
+Stanford, Oregon State
+NC State, Maryland
+Kentucky, LSU
+USC, Washington
+Mississippi State, Tulane
+Oregon, California
+Utah State, New Mexico State
+Northwestern, Indiana
+Purdue, Northwestern
+Ohio State, Northwestern
+Wake Forest, Maryland
+San Diego State, Colorado State
+Akron, Central Michigan
+Toledo, Central Michigan
+Hawaii, UNLV
+Tulsa, Memphis
+Temple, Syracuse
+Southern Miss, Mississippi State
+West Virginia, Virginia Tech
+TCU, Rice
+Fresno State, Nevada
+Wisconsin, Purdue
+Indiana, Illinois
+UCLA, Oregon
+Washington, Stanford
+California, Washington State
+Oregon State, USC
+Washington State, USC
+Rutgers, Penn State
+UAB, Louisiana Tech
+Louisville, Tulsa
+Appalachian State, Marshall
+Nebraska, Oklahoma
+Vanderbilt, Georgia
+Kansas State, Nebraska
+Iowa State, Oklahoma
+Air Force, New Mexico
+Kansas, Iowa State
+Texas State, South Alabama
+Florida Atlantic, UAB
+Army, Rutgers
+Georgia State, Louisiana–Monroe
+Missouri, Oklahoma
+Nevada, Boise State
+UNLV, New Mexico
+Northern Illinois, Eastern Michigan
+FIU, Arkansas State
+Coastal Carolina, Arkansas State
+Florida State, Virginia Tech
+Miami (FL), Boston College
+Western Kentucky, Marshall
+Georgia Southern, Coastal Carolina
+South Alabama, Louisiana–Monroe
+Charlotte, Old Dominion
+Boise State, Wyoming
+Buffalo, Bowling Green
+UCF, Marshall
+South Florida, Louisville
+UConn, Syracuse
+Old Dominion, Charlotte
+UMass, FIU
+Liberty, Virginia Tech
+James Madison, Georgia State
+UTSA, Southern Miss
+Louisiana, North Texas
+Georgia Tech, Alabama
+New Mexico, Utah
+Tulane, Alabama
+Virginia Tech, Wake Forest
+Marshall, Bowling Green
+Auburn, LSU
+Utah, New Mexico
+Colorado State, New Mexico
+Arizona State, UCLA
+North Texas, Cincinnati
+Pittsburgh, Navy
+Memphis, Cincinnati
+Rice, Arkansas
+Troy, South Alabama
+Syracuse, Maryland
+Louisiana–Monroe, Auburn
+Clemson, Georgia
+Arkansas, Ole Miss
+Oklahoma State, Missouri
+Bowling Green, Central Michigan
+Miami (OH), Toledo
+Houston, Memphis
+UTEP, Colorado State
+Arkansas State, North Texas
+Alabama, Georgia
+Florida, Miami (FL)
+Tennessee, Florida
+Texas Tech, SMU
+Iowa, Indiana
+Wyoming, Air Force
+Baylor, Texas Tech
+Arizona, Utah
+Kent State, Akron
+Duke, Clemson
+Ohio, Central Michigan
+SMU, Texas
+East Carolina, Virginia Tech
+BYU, UTEP
+New Mexico State, San Jose State
+North Carolina, Clemson
+Maryland, West Virginia
+Middle Tennessee, Louisiana
+Notre Dame, Army
+Penn State, Navy
+Ole Miss, Tennessee
+LSU, Arkansas
+Boston College, West Virginia
+Minnesota, Illinois
+Navy, Penn State
+South Carolina, Duke
+Virginia, Wake Forest
+Oklahoma, Iowa State
+Michigan State, Wisconsin
+Colorado, Kansas State
+San Jose State, Arizona State
+Central Michigan, Ohio
+Ball State, Miami (OH)
+Eastern Michigan, Ohio
+Western Michigan, Ohio
+Cincinnati, East Carolina
+Louisiana Tech, Rice
+Georgia, Alabama
+Michigan, Indiana
+Texas, Arkansas
+Texas A&M, Arkansas
+Illinois, Iowa
+Stanford, Oregon
+NC State, Virginia
+Kentucky, Mississippi State
+USC, Oregon State
+Mississippi State, Florida
+Oregon, UCLA
+Utah State, San Jose State
+Northwestern, Iowa
+Purdue, Notre Dame
+Ohio State, Iowa
+Wake Forest, South Carolina
+San Diego State, Hawaii
+Akron, Buffalo
+Toledo, Eastern Michigan
+Hawaii, UTEP
+Tulsa, SMU
+Temple, West Virginia
+Southern Miss, Louisville
+West Virginia, Rutgers
+TCU, Arkansas
+Fresno State, UNLV
+Wisconsin, Ohio State
+Indiana, Michigan
+UCLA, Oregon State
+Washington, USC
+California, Oregon
+Oregon State, California
+Washington State, Stanford
+Rutgers, Pittsburgh
+UAB, Rice
+Louisville, Syracuse
+Appalachian State, Troy
+Nebraska, Colorado
+Vanderbilt, Florida
+Kansas State, Colorado
+Iowa State, Iowa
+Air Force, San Diego State
+Kansas, Oklahoma State
+Texas State, Troy
+Florida Atlantic, Louisiana–Monroe
+Army, Pittsburgh
+Georgia State, Texas State
+Missouri, Colorado
+Nevada, Utah State
+UNLV, Fresno State
+Northern Illinois, Kent State
+FIU, Louisiana
+Coastal Carolina, Louisiana–Monroe
+Florida State, Clemson
+Miami (FL), Georgia Tech
+Western Kentucky, Troy
+Georgia Southern, Louisiana
+South Alabama, Texas State
+Charlotte, Western Kentucky
+Boise State, San Jose State
+Buffalo, Northern Illinois
+UCF, Tulsa
+South Florida, Memphis
+UConn, Buffalo
+Old Dominion, Middle Tennessee
+UMass, Liberty
+Liberty, UAB
+James Madison, Louisville
+UTSA, UAB
+Louisiana, Troy
+Georgia Tech, Tulane
+New Mexico, Arizona
+Tulane, Auburn
+Virginia Tech, Florida State
+Marshall, East Carolina
+Auburn, Tennessee
+Utah, Arizona
+Colorado State, Air Force
+Arizona State, Oregon
+North Texas, Middle Tennessee
+Pittsburgh, Temple
+Memphis, Tulsa
+Rice, LSU
+Troy, UAB
+Syracuse, Temple
+Louisiana–Monroe, Louisiana Tech
+Clemson, North Carolina
+Arkansas, Rice
+Oklahoma State, Texas Tech
+Bowling Green, Eastern Michigan
+Miami (OH), Ball State
+Houston, Baylor
+UTEP, Utah
+Arkansas State, Middle Tennessee
+Alabama, Ole Miss
+Florida, Vanderbilt
+Tennessee, Georgia
+Texas Tech, Rice
+Iowa, Iowa State
+Wyoming, San Diego State
+Baylor, Arkansas
+Arizona, UTEP
+Kent State, Central Michigan
+Duke, Maryland
+Ohio, Eastern Michigan
+SMU, Texas Tech
+East Carolina, South Carolina
+BYU, San Diego State
+New Mexico State, Fresno State
+North Carolina, Georgia Tech
+Maryland, Duke
+Middle Tennessee, Louisiana–Monroe
+Notre Dame, Northwestern
+Penn State, Ohio State
+Ole Miss, Tulane
+LSU, Texas A&M
+Boston College, Virginia Tech
+Minnesota, Indiana
+Navy, Virginia
+South Carolina, Florida
+Virginia, Clemson
+Oklahoma, Nebraska
+Michigan State, Ohio State
+Colorado, Iowa State
+San Jose State, UNLV
+Central Michigan, Kent State
+Ball State, Kent State
+Eastern Michigan, Kent State
+Western Michigan, Ball State
+Cincinnati, Temple
+Louisiana Tech, Boise State
+Georgia, South Carolina
+Michigan, Wisconsin
+Texas, SMU
+Texas A&M, Texas Tech
+Illinois, Minnesota
+Stanford, Washington State
+NC State, South Carolina
+Kentucky, Ole Miss
+USC, Washington State
+Mississippi State, Kentucky
+Oregon, USC
+Utah State, New Mexico
+Northwestern, Ohio State
+Purdue, Minnesota
+Ohio State, Purdue
+Wake Forest, Virginia
+San Diego State, Utah
+Akron, Eastern Michigan
+Toledo, Ohio
+Hawaii, Wyoming
+Tulsa, Louisville
+Temple, Cincinnati
+Southern Miss, Louisiana
+West Virginia, Temple
+TCU, Texas Tech
+Fresno State, Boise State
+Wisconsin, Michigan
+Indiana, Minnesota
+UCLA, Washington State
+Washington, UCLA
+California, Oregon State
+Oregon State, UCLA
+Washington State, UCLA
+Rutgers, Boston College
+UAB, Tulane
+Louisville, Florida State
+Appalachian State, Louisiana–Monroe
+Nebraska, Minnesota
+Vanderbilt, Tulane
+Kansas State, Oklahoma State
+Iowa State, Colorado
+Air Force, BYU
+Kansas, Colorado
+Texas State, Appalachian State
+Florida Atlantic, Marshall
+Army, Duke
+Georgia State, South Alabama
+Missouri, Oklahoma State
+Nevada, Colorado State
+UNLV, Wyoming
+Northern Illinois, Ohio
+FIU, Louisiana–Monroe
+Coastal Carolina, UMass
+Florida State, Georgia Tech
+Miami (FL), Notre Dame
+Western Kentucky, Old Dominion
+Georgia Southern, Louisiana–Monroe
+South Alabama, Georgia State
+Charlotte, Georgia State
+Boise State, BYU
+Buffalo, Ball State
+UCF, SMU
+South Florida, Pittsburgh
+UConn, Louisville
+Old Dominion, UTEP
+UMass, Bowling Green
+Liberty, Army
+James Madison, Marshall
+UTSA, Middle Tennessee
+Louisiana, Middle Tennessee
+Georgia Tech, Tennessee
+New Mexico, Texas Tech
+Tulane, Memphis
+Virginia Tech, Clemson
+Marshall, Louisville
+Auburn, Clemson
+Utah, Oregon
+Colorado State, San Diego State
+Arizona State, Washington
+North Texas, Louisiana
+Pittsburgh, Boston College
+Memphis, Houston
+Rice, Texas Tech
+Troy, Florida Atlantic
+Syracuse, Navy
+Louisiana–Monroe, Arkansas
+Clemson, Duke
+Arkansas, LSU
+Oklahoma State, Colorado
+Bowling Green, Ball State
+Miami (OH), Central Michigan
+Houston, Cincinnati
+UTEP, Wyoming
+Arkansas State, New Mexico State
+Alabama, Georgia Tech
+Florida, Mississippi State
+Tennessee, Mississippi State
+Texas Tech, New Mexico
+Iowa, Ohio State
+Wyoming, UTEP
+Baylor, Oklahoma State
+Arizona, Oregon State
+Kent State, Eastern Michigan
+Duke, South Carolina
+Ohio, Marshall
+SMU, Houston
+East Carolina, Temple
+BYU, Air Force
+New Mexico State, Tulsa
+North Carolina, South Carolina
+Maryland, Penn State
+Middle Tennessee, Troy
+Notre Dame, Michigan
+Penn State, Michigan State
+Ole Miss, Memphis
+LSU, Kentucky
+Boston College, Miami (FL)
+Minnesota, Nebraska
+Navy, Boston College
+South Carolina, Tennessee
+Virginia, Georgia Tech
+Oklahoma, Colorado
+Michigan State, Illinois
+Colorado, Oklahoma
+San Jose State, San Diego State
+Central Michigan, Bowling Green
+Ball State, Bowling Green
+Eastern Michigan, Bowling Green
+Western Michigan, Kent State
+Cincinnati, South Florida
+Louisiana Tech, Fresno State
+Georgia, Clemson
+Michigan, Iowa
+Texas, Texas Tech
+Texas A&M, LSU
+Illinois, Indiana
+Stanford, San Jose State
+NC State, Virginia Tech
+Kentucky, Alabama
+USC, Oregon
+Mississippi State, Tennessee
+Oregon, Arizona
+Utah State, Fresno State
+Northwestern, Michigan
+Purdue, Michigan State
+Ohio State, Minnesota
+Wake Forest, Florida State
+San Diego State, UNLV
+Akron, Western Michigan
+Toledo, Miami (OH)
+Hawaii, New Mexico
+Tulsa, North Texas
+Temple, East Carolina
+Southern Miss, UAB
+West Virginia, Boston College
+TCU, Kansas
+Fresno State, New Mexico State
+Wisconsin, Indiana
+Indiana, Michigan State
+UCLA, Arizona
+Washington, Arizona State
+California, Arizona
+Oregon State, Arizona State
+Washington State, Arizona
+Rutgers, Navy
+UAB, UCF
+Louisville, Pittsburgh
+Appalachian State, South Carolina
+Nebraska, Iowa
+Vanderbilt, Auburn
+Kansas State, Texas
+Iowa State, Oklahoma State
+Air Force, Notre Dame
+Kansas, TCU
+Texas State, New Mexico State
+Florida Atlantic, Troy
+Army, Penn State
+Georgia State, Coastal Carolina
+Missouri, Illinois
+Nevada, New Mexico State
+UNLV, Air Force
+Northern Illinois, Bowling Green
+FIU, Marshall
+Coastal Carolina, Texas State
+Florida State, Maryland
+Miami (FL), North Carolina
+Western Kentucky, Charlotte
+Georgia Southern, New Mexico State
+South Alabama, Appalachian State
+Charlotte, Rice
+Boise State, New Mexico
+Buffalo, Central Michigan
+UCF, UAB
+South Florida, Syracuse
+UConn, Army
+Old Dominion, Virginia Tech
+UMass, BYU
+Liberty, BYU
+James Madison, Maryland
+UTSA, FIU
+Louisiana, New Mexico State
+Georgia Tech, Virginia
+New Mexico, San Diego State
+Tulane, Rice
+Virginia Tech, Maryland
+Marshall, Southern Miss
+Auburn, Ole Miss
+Utah, Arizona State
+Colorado State, UTEP
+Arizona State, California
+North Texas, Louisiana Tech
+Pittsburgh, Rutgers
+Memphis, East Carolina
+Rice, Houston
+Troy, Georgia State
+Syracuse, Miami (FL)
+Louisiana–Monroe, Texas State
+Clemson, Auburn
+Arkansas, Tulsa
+Oklahoma State, Arkansas
+Bowling Green, Akron
+Miami (OH), Marshall
+Houston, Tulane
+UTEP, North Texas
+Arkansas State, South Alabama
+Alabama, Florida
+Florida, Tennessee
+Tennessee, Georgia Tech
+Texas Tech, Arkansas
+Iowa, Michigan
+Wyoming, Hawaii
+Baylor, Oklahoma
+Arizona, USC
+Kent State, Ball State
+Duke, Navy
+Ohio, Akron
+SMU, Tulane
+East Carolina, Tulane
+BYU, Arizona State
+New Mexico State, Arizona
+North Carolina, Virginia Tech
+Maryland, Syracuse
+Middle Tennessee, Marshall
+Notre Dame, Georgia Tech
+Penn State, Rutgers
+Ole Miss, Auburn
+LSU, Rice
+Boston College, Wake Forest
+Minnesota, Ohio State
+Navy, Syracuse
+South Carolina, Virginia
+Virginia, South Carolina
+Oklahoma, Baylor
+Michigan State, Iowa
+Colorado, Oklahoma State
+San Jose State, Nevada
+Central Michigan, Miami (OH)
+Ball State, Ohio
+Eastern Michigan, Miami (OH)
+Western Michigan, Miami (OH)
+Cincinnati, Rutgers
+Louisiana Tech, Nevada
+Georgia, Tennessee
+Michigan, Purdue
+Texas, Oklahoma State
+Texas A&M, Houston
+Illinois, Michigan State
+Stanford, Notre Dame
+NC State, Florida State
+Kentucky, Auburn
+USC, Arizona
+Mississippi State, Memphis
+Oregon, Arizona State
+Utah State, UNLV
+Northwestern, Michigan State
+Purdue, Michigan
+Ohio State, Michigan State
+Wake Forest, Virginia Tech
+San Diego State, Fresno State
+Akron, Ball State
+Toledo, Kent State
+Hawaii, Colorado State
+Tulsa, Texas Tech
+Temple, Navy
+Southern Miss, Auburn
+West Virginia, East Carolina
+TCU, Oklahoma State
+Fresno State, New Mexico
+Wisconsin, Michigan State
+Indiana, Wisconsin
+UCLA, Arizona State
+Washington, Arizona
+California, Arizona State
+Oregon State, Arizona
+Washington State, Arizona State
+Rutgers, Cincinnati
+UAB, Troy
+Louisville, Boston College
+Appalachian State, Coastal Carolina
+Nebraska, Oklahoma State
+Vanderbilt, Georgia Tech
+Kansas State, Texas Tech
+Iowa State, Minnesota
+Air Force, Utah
+Kansas, Texas Tech
+Texas State, Georgia Southern
+Florida Atlantic, Charlotte
+Army, Tulane
+Georgia State, Louisiana
+Missouri, SMU
+Nevada, San Diego State
+UNLV, Colorado State
+Northern Illinois, Miami (OH)
+FIU, Troy
+Coastal Carolina, Kansas
+Florida State, Duke
+Miami (FL), Syracuse
+Western Kentucky, Louisiana Tech
+Georgia Southern, Arkansas State
+South Alabama, Coastal Carolina
+Charlotte, Southern Miss
+Boise State, Colorado State
+Buffalo, UConn
+UCF, Houston
+South Florida, Houston
+UConn, Pittsburgh
+Old Dominion, Appalachian State
+UMass, Coastal Carolina
+Liberty, Louisiana
+James Madison, Middle Tennessee
+UTSA, Texas State
+Louisiana, Appalachian State
+Georgia Tech, Florida
+New Mexico, Air Force
+Tulane, Southern Miss
+Virginia Tech, Boston College
+Marshall, UAB
+Auburn, Vanderbilt
+Utah, UTEP
+Colorado State, Hawaii
+Arizona State, Stanford
+North Texas, Louisiana–Monroe
+Pittsburgh, Army
+Memphis, Tennessee
+Rice, Tulane
+Troy, Appalachian State
+Syracuse, Louisville
+Louisiana–Monroe, Florida Atlantic
+Clemson, Virginia
+Arkansas, Oklahoma State
+Oklahoma State, Nebraska
+Bowling Green, Marshall
+Miami (OH), Akron
+Houston, TCU
+UTEP, Hawaii
+Arkansas State, Texas State
+Alabama, Kentucky
+Florida, Alabama
+Tennessee, South Carolina
+Texas Tech, Houston
+Iowa, Michigan State
+Wyoming, Colorado
+Baylor, Houston
+Arizona, Washington
+Kent State, Buffalo
+Duke, Virginia Tech
+Ohio, Ball State
+SMU, Tulsa
+East Carolina, UCF
+BYU, Hawaii
+New Mexico State, Nevada
+North Carolina, Tennessee
+Maryland, Virginia Tech
+Middle Tennessee, UAB
+Notre Dame, Stanford
+Penn State, Iowa
+Ole Miss, Georgia
+LSU, Auburn
+Boston College, Navy
+Minnesota, Michigan State
+Navy, Georgia Tech
+South Carolina, Kentucky
+Virginia, Navy
+Oklahoma, Texas A&M
+Michigan State, Minnesota
+Colorado, Wyoming
+San Jose State, New Mexico State
+Central Michigan, Akron
+Ball State, Akron
+Eastern Michigan, Akron
+Western Michigan, Marshall
+Cincinnati, North Texas
+Louisiana Tech, San Jose State
+Georgia, Ole Miss
+Michigan, Notre Dame
+Texas, Houston
+Texas A&M, Oklahoma
+Illinois, Penn State
+Stanford, Arizona State
+NC State, East Carolina
+Kentucky, South Carolina
+USC, Arizona State
+Mississippi State, Arkansas
+Oregon, Utah
+Utah State, Boise State
+Northwestern, Notre Dame
+Purdue, Ohio State
+Ohio State, Penn State
+Wake Forest, Georgia Tech
+San Diego State, San Jose State
+Akron, Northern Illinois
+Toledo, Marshall
+Hawaii, Nevada
+Tulsa, Oklahoma
+Temple, Virginia Tech
+Southern Miss, Louisiana Tech
+West Virginia, Virginia
+TCU, Houston
+Fresno State, Colorado State
+Wisconsin, Penn State
+Indiana, Kentucky
+UCLA, Utah
+Washington, Colorado
+California, San Jose State
+Oregon State, Utah
+Washington State, Utah
+Rutgers, Virginia Tech
+UAB, Florida Atlantic
+Louisville, Houston
+Appalachian State, Texas State
+Nebraska, Pittsburgh
+Vanderbilt, LSU
+Kansas State, Baylor
+Iowa State, Baylor
+Air Force, UNLV
+Kansas, Baylor
+Texas State, Coastal Carolina
+Florida Atlantic, Louisiana
+Army, Syracuse
+Georgia State, Charlotte
+Missouri, Texas
+Nevada, Louisiana Tech
+UNLV, Utah State
+Northern Illinois, Akron
+FIU, Charlotte
+Coastal Carolina, Louisiana
+Florida State, North Carolina
+Miami (FL), Duke
+Western Kentucky, Arkansas State
+Georgia Southern, Texas State
+South Alabama, Louisiana Tech
+Charlotte, UAB
+Boise State, Louisiana Tech
+Buffalo, Eastern Michigan
+UCF, Temple
+South Florida, Rutgers
+UConn, UCF
+Old Dominion, East Carolina
+UMass, Eastern Michigan
+Liberty, Louisiana–Monroe
+James Madison, North Carolina
+UTSA, Western Kentucky
+Jacksonville State, Troy
+Jacksonville State, FIU
+Jacksonville State, Louisiana Tech
+Jacksonville State, Middle Tennessee
+Jacksonville State, UTEP
+Jacksonville State, Western Kentucky
+Jacksonville State, Liberty
+Jacksonville State, New Mexico State
+Jacksonville State, Sam Houston
+Jacksonville State, Kennesaw State
+Sam Houston, FIU
+Sam Houston, Louisiana Tech
+Sam Houston, Middle Tennessee
+Sam Houston, UTEP
+Sam Houston, Western Kentucky
+Sam Houston, Liberty
+Sam Houston, New Mexico State
+Sam Houston, Jacksonville State
+Sam Houston, Kennesaw State
+Kennesaw State, FIU
+Kennesaw State, Louisiana Tech
+Kennesaw State, Middle Tennessee
+Kennesaw State, UTEP
+Kennesaw State, Western Kentucky
+Kennesaw State, Liberty
+Kennesaw State, New Mexico State
+Kennesaw State, Sam Houston
+Kennesaw State, Jacksonville State

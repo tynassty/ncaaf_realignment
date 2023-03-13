@@ -1,0 +1,12 @@
+Angel City, 34.013, -118.285
+Chicago Red Stars, 41.764722, -87.806111
+Houston Dash, 29.7522, -95.3524
+Kansas City Current, 39.1214, -94.821
+NJ/NY Gotham FC, 40.736667, -74.150278
+North Carolina Courage, 35.78640144572836, -78.7552028039414
+OL Reign, 47.5952, -122.3316
+Orlando Pride, 28.5411, -81.3893
+Portland Thorns, 45.521389, -122.691667
+Racing Louisville FC, 38.259444, -85.731944
+San Diego Wave FC, 32.784444, -117.122833
+Washington Spirit, 38.868411, -77.012869
