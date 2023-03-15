@@ -5,8 +5,9 @@ import random
 def cost_function(state):
     total_distance = state_total_distance(state)
     rival_count = state_rival_count(state)
+    sagarin_difference = state_sagarin_difference(state)
     # print(total_distance, rival_count)
-    return total_distance - (rival_count * 1000)
+    return total_distance + (sagarin_difference * 50) - (rival_count * 500)
 
 
 def noisy_state_total_distance(state):
@@ -37,18 +38,6 @@ def one_small_group_cost_function(state):
     return min(costs)
 
 
-def state_total_distance(state):
-    """
-    returns the total total_cost of a state
-    :param state: the list of groups, where each group is a list of schools
-    :return: the total total_cost
-    """
-    total_cost = 0.0
-    for group in state:
-        total_cost += group_total_distance(group)
-    return total_cost
-
-
 def group_rival_count(schools: list):
     count = 0
     for i in range(len(schools)):
@@ -59,10 +48,16 @@ def group_rival_count(schools: list):
 
 
 def state_rival_count(state):
-    total_cost = 0.0
-    for group in state:
-        total_cost += group_rival_count(group)
-    return total_cost
+    return state_cost_by_function(state, group_cost_function=group_rival_count)
+
+
+def state_total_distance(state):
+    """
+    returns the total total_cost of a state
+    :param state: the list of groups, where each group is a list of schools
+    :return: the total total_cost
+    """
+    return state_cost_by_function(state, group_cost_function=group_total_distance)
 
 
 def group_total_distance(schools: list):
@@ -77,6 +72,25 @@ def group_total_distance(schools: list):
             distance += great_circle_distance(schools[i].latitude, schools[i].longitude,
                                               schools[j].latitude, schools[j].longitude)
     return distance
+
+
+def group_sagarin_difference(group):
+    sagarin_difference = 0.0
+    for i in range(len(group)):
+        for j in range(i, len(group)):
+            sagarin_difference += abs(group[i].get_detail("sagarin2022") - group[j].get_detail("sagarin2022"))
+    return sagarin_difference
+
+
+def state_sagarin_difference(state):
+    return state_cost_by_function(state, group_cost_function=group_sagarin_difference)
+
+
+def state_cost_by_function(state, group_cost_function):
+    total_cost = 0
+    for group in state:
+        total_cost += group_cost_function(group)
+    return total_cost
 
 
 def great_circle_distance(lat1, lon1, lat2, lon2, miles=True):

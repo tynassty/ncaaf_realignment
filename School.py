@@ -7,6 +7,7 @@ class School:
         self.latitude = latitude
         self.longitude = longitude
         self.rivals = rivals
+        self.details = {}
 
     def get_name(self):
         return self.name
@@ -25,6 +26,12 @@ class School:
 
     def add_rival(self, other):
         self.rivals.append(other.get_name())
+
+    def add_detail(self, detail_name, detail):
+        self.details.update({detail_name: detail})
+
+    def get_detail(self, detail_name):
+        return self.details.get(detail_name)
 
     def __str__(self):
         return self.name

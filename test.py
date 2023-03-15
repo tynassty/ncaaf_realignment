@@ -1,30 +1,14 @@
 import matplotlib.pyplot as plt
-
-def divide_list_into_groups(lst, k):
-    n = len(lst)
-    group_size = n // k  # integer division
-    remainder = n % k
-
-    groups = []
-    start = 0
-    for i in range(k):
-        if i < remainder:
-            end = start + group_size + 1
-        else:
-            end = start + group_size
-        groups.append(lst[start:end])
-        start = end
-
-    return groups
+from PIL import Image, ImageDraw, ImageFont
 
 
 if __name__ == "__main__":
-    # x = [i for i in range(100)]
-    # y = [item+item for item in x]
-    # plt.figure(figsize=(7, 7))
-    # plt.plot(x, y, label="hello")
-    # plt.title("a graph")
-    # plt.legend()
-    # plt.show()
-    x = 134 // 10
-    print(x)
+    old_image = Image.open("images/hrrrdrrr.jpg")
+    width, height = old_image.size
+    distorted_image = old_image.resize((width, height//2))
+    new_image = Image.new("RGB", (width, height*2))
+    new_image.paste(old_image, (0, 0))
+    new_image.paste(distorted_image, (0, height))
+    new_image.paste(distorted_image, (0, int(height*1.5)))
+    new_image.show()
+

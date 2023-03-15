@@ -12,7 +12,8 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
     f = open(schools_file)
     for line in f:
         line = line.split(", ")
-        school = School(line[0], float(line[1]), float(line[2][:-2]))
+        school = School(line[0], float(line[1]), float(line[2]))
+        school.add_detail("sagarin2022", float(line[3][:-1]))
         list_of_schools.append(school)
         dict_of_schools.update({school.get_name(): school})
     f.close()
@@ -134,7 +135,23 @@ def random_swap_neighbors_uneven(state, batch_size=100):
 
 
 def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, buffer=50, minimize=True,
-               batch_size=100, print_freq=10, random_swap_function=random_swap_neighbors):
+               batch_size=100, print_freq=10, find_neighbors=random_swap_neighbors):
+    """
+    calculates an optimal solution through a hill climb
+    :param schools: a list of schools
+    :param k: the number of groups to divide the schools into
+    :param f: the maximization function to use
+    :param max_iter: the maximum number of iterations to do
+    :param print_info: a boolean representing whether to print information about the run to the console
+    :param show_graph: a boolean representing whether to display a graph of the progression of costs
+    :param show_map: a boolean representing whether to display a map of the optimal groups
+    :param buffer: the number of iterations the model is allowed to do without making progress before terminating
+    :param minimize: a boolean representing whether the hill climb should minimize (vs maximize)
+    :param batch_size: the maximum number of neighbors to generate for each state
+    :param print_freq: how often the current state should be printed to the console (iff print_info == True)
+    :param find_neighbors: the function to use to find neighbor states
+    :return:
+    """
     current_state = initial_state(schools, k)
     current_cost = f(current_state)
 
@@ -142,7 +159,7 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
 
     consecutive_optimum = 0
     x_axis = []
-    data_to_plot = [[] for _ in range(k)]
+    costs_to_plot = [[] for _ in range(k)]
     while iteration < max_iter:
 
         if print_info:
@@ -157,10 +174,9 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         if show_graph:
             x_axis.append(iteration)
             for j in range(len(current_state)):
-                data_to_plot[j].append(f([current_state[j]]))
+                costs_to_plot[j].append(f([current_state[j]]))
 
-        # neighbor_states = random_swap_neighbors_uneven(current_state, batch_size=batch_size)
-        neighbor_states = random_swap_function(current_state, batch_size=batch_size)
+        neighbor_states = find_neighbors(current_state, batch_size=batch_size)
         neighbor_states.append(initial_state(schools, k))
 
         best_state = current_state
@@ -191,8 +207,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
 
     if show_graph:
         plt.figure(figsize=(10, 5))
-        for index in range(len(data_to_plot)):
-            plt.plot(x_axis, data_to_plot[index], label="group "+str(index))
+        for index in range(len(costs_to_plot)):
+            plt.plot(x_axis, costs_to_plot[index], label="group "+str(index))
         plt.title("cost per school by iteration")
         plt.legend()
         plt.show()
@@ -220,14 +236,7 @@ def run_nwsl():
     result_state = hill_climb(schools, k, cf.state_total_distance, max_iter=2000, buffer=200, show_map=True,
                               show_graph=False, print_info=True, minimize=True, batch_size=100, print_freq=10)
 
-    for i in range(len(result_state)):
-        group = result_state[i]
-        print("\nGROUP " + str(i) + ":")
-        school_name_list = []
-        for school in group:
-            school_name_list.append(school.get_name())
-        school_name_list.sort()
-        print(school_name_list)
+    print_state(result_state)
 
 
 def run_with_divisions():
@@ -245,14 +254,7 @@ def run_with_divisions():
 
     for i in range(len(conferences)):
         conference = conferences[i]
-        for j in range(len(conference)):
-            division = conference[j]
-            print("\nGROUP " + str(i) + " DIVISION " + str(j) + ":")
-            school_name_list = []
-            for school in division:
-                school_name_list.append(school.get_name())
-            school_name_list.sort()
-            print(school_name_list)
+        print_state(conference)
 
 
 def run_full():
@@ -261,23 +263,21 @@ def run_full():
 
     result_state = hill_climb(schools, k, cf.cost_function, max_iter=100, buffer=1, show_map=True,
                               show_graph=True, print_info=True, minimize=True, print_freq=1,
-                              random_swap_function=random_swap_neighbors_all)
-    for i in range(len(result_state)):
-        group = result_state[i]
-        print("\nGROUP " + str(i) + ":")
-        school_name_list = []
-        for school in group:
-            school_name_list.append(school.get_name())
-        school_name_list.sort()
-        print(school_name_list)
+                              find_neighbors=random_swap_neighbors_all)
+    print_state(result_state)
 
 
-def run():
+def run(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=True, show_graph=True, print_info=True,
+        minimize=True, batch_size=100, print_freq=10):
     schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
-    k = 10
 
-    result_state = hill_climb(schools, k, cf.cost_function, max_iter=2000, buffer=200, show_map=True,
-                              show_graph=True, print_info=True, minimize=True, batch_size=100, print_freq=10)
+    result_state = hill_climb(schools, k, f, max_iter=max_iter, buffer=buffer, show_map=show_map,
+                              show_graph=show_graph, print_info=print_info, minimize=minimize, batch_size=batch_size,
+                              print_freq=print_freq)
+    print_state(result_state)
+
+
+def print_state(result_state):
     for i in range(len(result_state)):
         group = result_state[i]
         print("\nGROUP " + str(i) + ":")
@@ -289,7 +289,7 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    run(max_iter=200)
 
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
