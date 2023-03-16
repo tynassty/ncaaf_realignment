@@ -2,4 +2,4 @@
 import model
 
 if __name__ == "__main__":
-    model.run()
+    model.run_default()

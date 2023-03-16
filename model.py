@@ -1,9 +1,12 @@
 # tyler nass
 import copy
+import os.path
 import random
 import matplotlib.pyplot as plt
 import cost_functions as cf
+import drawing
 from School import School
+from PIL import Image
 
 
 def create_schools(schools_file, rivals_file=None, return_dict=False):
@@ -135,7 +138,7 @@ def random_swap_neighbors_uneven(state, batch_size=100):
 
 
 def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, buffer=50, minimize=True,
-               batch_size=100, print_freq=10, find_neighbors=random_swap_neighbors):
+               batch_size=100, print_freq=10, find_neighbors=random_swap_neighbors, create_image=False):
     """
     calculates an optimal solution through a hill climb
     :param schools: a list of schools
@@ -204,6 +207,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         current_cost = best_cost
 
         iteration += 1
+    if iteration <= max_iter:
+        print("Hill climb concluded")
 
     if show_graph:
         plt.figure(figsize=(10, 5))
@@ -226,7 +231,33 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         plt.ylim([20, 50])
         plt.show()
 
+    if create_image:
+        images = []
+        for group in current_state:
+            group_image_paths = []
+            for school in group:
+                image_path = school.get_name()
+                image_path = image_path.replace(" ", "_")
+                image_path = "images/" + image_path + ".png"
+                if not os.path.isfile(image_path):
+                    image_path = "images/NCAA.png"
+                group_image_paths.append(image_path)
+            images.append(drawing.group_images_from_paths(group_image_paths, 7))
+        to_show = drawing.group_images(images, 1, group_spacing=0.5)
+        to_show.show()
+
     return current_state
+
+
+def print_state(result_state):
+    for i in range(len(result_state)):
+        group = result_state[i]
+        print("\nGROUP " + str(i) + ":")
+        school_name_list = []
+        for school in group:
+            school_name_list.append(school.get_name())
+        school_name_list.sort()
+        print(school_name_list)
 
 
 def run_nwsl():
@@ -267,29 +298,25 @@ def run_full():
     print_state(result_state)
 
 
-def run(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=True, show_graph=True, print_info=True,
-        minimize=True, batch_size=100, print_freq=10):
+def image_test():
+    schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
+
+    result_state = hill_climb(schools, 10, cf.cost_function, max_iter=1, create_image=True)
+
+    print_state(result_state)
+
+
+def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=False, show_graph=False, print_info=True,
+                minimize=True, batch_size=100, print_freq=10, create_image=False):
     schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
 
     result_state = hill_climb(schools, k, f, max_iter=max_iter, buffer=buffer, show_map=show_map,
                               show_graph=show_graph, print_info=print_info, minimize=minimize, batch_size=batch_size,
-                              print_freq=print_freq)
+                              print_freq=print_freq, create_image=create_image)
     print_state(result_state)
 
 
-def print_state(result_state):
-    for i in range(len(result_state)):
-        group = result_state[i]
-        print("\nGROUP " + str(i) + ":")
-        school_name_list = []
-        for school in group:
-            school_name_list.append(school.get_name())
-        school_name_list.sort()
-        print(school_name_list)
-
-
 if __name__ == "__main__":
-    run(max_iter=200)
-
+    run_default(create_image=True)
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
