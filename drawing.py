@@ -23,11 +23,15 @@ def group_images(images: list[Image.Image], column_count=7, group_spacing=0.0):
 
 def group_images_from_paths(image_paths: list[str], column_count=7):
     images = [Image.open(image_path) for image_path in image_paths]
+    widths = [image.width for image in images]
+    heights = [image.height for image in images]
+    unit_size = max(max(widths), max(heights))
     for i in range(len(images)):
         image = images[i]
-        image_w, image_h = image.size
-        if image_w != image_h:
-            background = Image.new("RGBA", (max(image_w, image_h), max(image_w, image_h)), color=(255, 255, 255, 255))
+        image_w = widths[i]
+        image_h = heights[i]
+        if image_w != unit_size or image_h != unit_size:
+            background = Image.new("RGBA", (unit_size, unit_size), color=(255, 255, 255, 255))
             background_w, background_h = background.size
             offset = ((background_w - image_w) // 2, (background_h - image_h) // 2)
             background.paste(image, offset)

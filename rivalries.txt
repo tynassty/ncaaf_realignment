@@ -39,7 +39,7 @@ Baylor, Texas A&M
 Miami (OH), Ohio
 Utah, Utah State
 North Carolina, South Carolina
-Louisiana, Louisiana–Monroe
+Louisiana, Louisiana Monroe
 Baylor, TCU
 Baylor, Texas Tech
 Oklahoma, Oklahoma State
@@ -123,7 +123,7 @@ Kentucky, Tennessee
 Kentucky, Vanderbilt
 Penn State, Pittsburgh
 Louisiana, Louisiana Tech
-Louisiana Tech, Louisiana–Monroe
+Louisiana Tech, Louisiana Monroe
 Louisville, Memphis
 LSU, Mississippi State
 LSU, Texas A&M

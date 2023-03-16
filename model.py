@@ -231,6 +231,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         plt.ylim([20, 50])
         plt.show()
 
+    current_state = sorted(current_state, key=lambda group: cf.group_sagarin_sum(group), reverse=True)
+
     if create_image:
         images = []
         for group in current_state:
@@ -254,9 +256,9 @@ def print_state(result_state):
         group = result_state[i]
         print("\nGROUP " + str(i) + ":")
         school_name_list = []
+        school_name_list.sort()
         for school in group:
             school_name_list.append(school.get_name())
-        school_name_list.sort()
         print(school_name_list)
 
 
@@ -317,6 +319,7 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 
 
 if __name__ == "__main__":
-    run_default(create_image=True)
+    run_default(create_image=True, max_iter=2000, batch_size=100, buffer=100)
+    # 650,555 from batch_size = 100
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)

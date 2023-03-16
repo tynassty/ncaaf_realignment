@@ -14,7 +14,7 @@ Memphis, Southern Miss
 Rice, Texas
 Troy, Louisiana
 Syracuse, Pittsburgh
-Louisiana–Monroe, Louisiana
+Louisiana Monroe, Louisiana
 Clemson, South Carolina
 Arkansas, Texas A&M
 Oklahoma State, Oklahoma
@@ -129,7 +129,7 @@ UMass, Boston College
 Liberty, UMass
 James Madison, Appalachian State
 UTSA, Louisiana Tech
-Louisiana, Louisiana–Monroe
+Louisiana, Louisiana Monroe
 Georgia Tech, Duke
 New Mexico, Wyoming
 Tulane, Ole Miss
@@ -145,7 +145,7 @@ Memphis, Ole Miss
 Rice, SMU
 Troy, Arkansas State
 Syracuse, Penn State
-Louisiana–Monroe, Arkansas State
+Louisiana Monroe, Arkansas State
 Clemson, Wake Forest
 Arkansas, Texas
 Oklahoma State, Kansas
@@ -153,7 +153,7 @@ Bowling Green, Kent State
 Miami (OH), Kent State
 Houston, Rice
 UTEP, New Mexico
-Arkansas State, Louisiana–Monroe
+Arkansas State, Louisiana Monroe
 Alabama, Mississippi State
 Florida, Auburn
 Tennessee, Kentucky
@@ -274,9 +274,9 @@ North Texas, Tulsa
 Pittsburgh, Syracuse
 Memphis, Louisville
 Rice, Baylor
-Troy, Louisiana–Monroe
+Troy, Louisiana Monroe
 Syracuse, West Virginia
-Louisiana–Monroe, North Texas
+Louisiana Monroe, North Texas
 Clemson, NC State
 Arkansas, SMU
 Oklahoma State, Kansas State
@@ -365,7 +365,7 @@ Kansas State, Oklahoma
 Iowa State, Kansas
 Air Force, Army
 Kansas, Nebraska
-Texas State, Louisiana–Monroe
+Texas State, Louisiana Monroe
 Florida Atlantic, North Texas
 Army, Notre Dame
 Georgia State, Troy
@@ -407,7 +407,7 @@ Memphis, Mississippi State
 Rice, Texas A&M
 Troy, Middle Tennessee
 Syracuse, Boston College
-Louisiana–Monroe, Troy
+Louisiana Monroe, Troy
 Clemson, Georgia Tech
 Arkansas, TCU
 Oklahoma State, Tulsa
@@ -538,7 +538,7 @@ Memphis, Tulane
 Rice, TCU
 Troy, North Texas
 Syracuse, Rutgers
-Louisiana–Monroe, Middle Tennessee
+Louisiana Monroe, Middle Tennessee
 Clemson, Maryland
 Arkansas, Baylor
 Oklahoma State, Iowa State
@@ -630,7 +630,7 @@ Kansas, Iowa State
 Texas State, South Alabama
 Florida Atlantic, UAB
 Army, Rutgers
-Georgia State, Louisiana–Monroe
+Georgia State, Louisiana Monroe
 Missouri, Oklahoma
 Nevada, Boise State
 UNLV, New Mexico
@@ -641,7 +641,7 @@ Florida State, Virginia Tech
 Miami (FL), Boston College
 Western Kentucky, Marshall
 Georgia Southern, Coastal Carolina
-South Alabama, Louisiana–Monroe
+South Alabama, Louisiana Monroe
 Charlotte, Old Dominion
 Boise State, Wyoming
 Buffalo, Bowling Green
@@ -669,7 +669,7 @@ Memphis, Cincinnati
 Rice, Arkansas
 Troy, South Alabama
 Syracuse, Maryland
-Louisiana–Monroe, Auburn
+Louisiana Monroe, Auburn
 Clemson, Georgia
 Arkansas, Ole Miss
 Oklahoma State, Missouri
@@ -759,7 +759,7 @@ Iowa State, Iowa
 Air Force, San Diego State
 Kansas, Oklahoma State
 Texas State, Troy
-Florida Atlantic, Louisiana–Monroe
+Florida Atlantic, Louisiana Monroe
 Army, Pittsburgh
 Georgia State, Texas State
 Missouri, Colorado
@@ -767,7 +767,7 @@ Nevada, Utah State
 UNLV, Fresno State
 Northern Illinois, Kent State
 FIU, Louisiana
-Coastal Carolina, Louisiana–Monroe
+Coastal Carolina, Louisiana Monroe
 Florida State, Clemson
 Miami (FL), Georgia Tech
 Western Kentucky, Troy
@@ -800,7 +800,7 @@ Memphis, Tulsa
 Rice, LSU
 Troy, UAB
 Syracuse, Temple
-Louisiana–Monroe, Louisiana Tech
+Louisiana Monroe, Louisiana Tech
 Clemson, North Carolina
 Arkansas, Rice
 Oklahoma State, Texas Tech
@@ -826,7 +826,7 @@ BYU, San Diego State
 New Mexico State, Fresno State
 North Carolina, Georgia Tech
 Maryland, Duke
-Middle Tennessee, Louisiana–Monroe
+Middle Tennessee, Louisiana Monroe
 Notre Dame, Northwestern
 Penn State, Ohio State
 Ole Miss, Tulane
@@ -882,7 +882,7 @@ Washington State, UCLA
 Rutgers, Boston College
 UAB, Tulane
 Louisville, Florida State
-Appalachian State, Louisiana–Monroe
+Appalachian State, Louisiana Monroe
 Nebraska, Minnesota
 Vanderbilt, Tulane
 Kansas State, Oklahoma State
@@ -897,12 +897,12 @@ Missouri, Oklahoma State
 Nevada, Colorado State
 UNLV, Wyoming
 Northern Illinois, Ohio
-FIU, Louisiana–Monroe
+FIU, Louisiana Monroe
 Coastal Carolina, UMass
 Florida State, Georgia Tech
 Miami (FL), Notre Dame
 Western Kentucky, Old Dominion
-Georgia Southern, Louisiana–Monroe
+Georgia Southern, Louisiana Monroe
 South Alabama, Georgia State
 Charlotte, Georgia State
 Boise State, BYU
@@ -931,7 +931,7 @@ Memphis, Houston
 Rice, Texas Tech
 Troy, Florida Atlantic
 Syracuse, Navy
-Louisiana–Monroe, Arkansas
+Louisiana Monroe, Arkansas
 Clemson, Duke
 Arkansas, LSU
 Oklahoma State, Colorado
@@ -1062,7 +1062,7 @@ Memphis, East Carolina
 Rice, Houston
 Troy, Georgia State
 Syracuse, Miami (FL)
-Louisiana–Monroe, Texas State
+Louisiana Monroe, Texas State
 Clemson, Auburn
 Arkansas, Tulsa
 Oklahoma State, Arkansas
@@ -1187,13 +1187,13 @@ Auburn, Vanderbilt
 Utah, UTEP
 Colorado State, Hawaii
 Arizona State, Stanford
-North Texas, Louisiana–Monroe
+North Texas, Louisiana Monroe
 Pittsburgh, Army
 Memphis, Tennessee
 Rice, Tulane
 Troy, Appalachian State
 Syracuse, Louisville
-Louisiana–Monroe, Florida Atlantic
+Louisiana Monroe, Florida Atlantic
 Clemson, Virginia
 Arkansas, Oklahoma State
 Oklahoma State, Nebraska
@@ -1305,7 +1305,7 @@ South Florida, Rutgers
 UConn, UCF
 Old Dominion, East Carolina
 UMass, Eastern Michigan
-Liberty, Louisiana–Monroe
+Liberty, Louisiana Monroe
 James Madison, North Carolina
 UTSA, Western Kentucky
 Jacksonville State, Troy
