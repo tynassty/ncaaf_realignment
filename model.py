@@ -1,5 +1,6 @@
 # tyler nass
 import copy
+import math
 import os.path
 import random
 import matplotlib.pyplot as plt
@@ -16,7 +17,7 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
     for line in f:
         line = line.split(", ")
         school = School(line[0], float(line[1]), float(line[2]))
-        school.add_detail("sagarin2022", float(line[3][:-1]))
+        school.add_detail("sagarin", float(line[3][:-1]))
         list_of_schools.append(school)
         dict_of_schools.update({school.get_name(): school})
     f.close()
@@ -141,6 +142,7 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
                batch_size=100, print_freq=10, find_neighbors=random_swap_neighbors, create_image=False):
     """
     calculates an optimal solution through a hill climb
+    :param create_image: boolean representing whether or not to produce an image of the logos grouped by group
     :param schools: a list of schools
     :param k: the number of groups to divide the schools into
     :param f: the maximization function to use
@@ -231,7 +233,9 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         plt.ylim([20, 50])
         plt.show()
 
-    current_state = sorted(current_state, key=lambda group: cf.group_sagarin_sum(group), reverse=True)
+    # print([cf.group_sagarin_average(group) for group in current_state])
+    current_state = sorted(current_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
+    # print([cf.group_sagarin_average(group) for group in current_state])
 
     if create_image:
         images = []
@@ -309,17 +313,17 @@ def image_test():
 
 
 def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=False, show_graph=False, print_info=True,
-                minimize=True, batch_size=100, print_freq=10, create_image=False):
+                minimize=True, batch_size=100, print_freq=10, create_image=False, find_neighbors=random_swap_neighbors):
     schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
 
     result_state = hill_climb(schools, k, f, max_iter=max_iter, buffer=buffer, show_map=show_map,
                               show_graph=show_graph, print_info=print_info, minimize=minimize, batch_size=batch_size,
-                              print_freq=print_freq, create_image=create_image)
+                              print_freq=print_freq, create_image=create_image, find_neighbors=find_neighbors)
     print_state(result_state)
 
 
 if __name__ == "__main__":
-    run_default(create_image=True, max_iter=2000, batch_size=100, buffer=100)
-    # 650,555 from batch_size = 100
+    run_default(create_image=True, max_iter=20000, batch_size=10, buffer=100, show_map=True,
+                f=cf.cost_function, minimize=True, print_freq=100, find_neighbors=random_swap_neighbors)
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)

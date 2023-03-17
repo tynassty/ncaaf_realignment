@@ -4,10 +4,10 @@ import random
 
 def cost_function(state):
     total_distance = state_total_distance(state)
-    rival_count = state_rival_count(state)
+    # rival_count = state_rival_count(state)
     sagarin_difference = state_sagarin_difference(state)
     # print(total_distance, rival_count)
-    return total_distance + (sagarin_difference * 100) - (rival_count * 500)
+    return total_distance + (sagarin_difference * 50)
 
 
 def noisy_state_total_distance(state):
@@ -74,17 +74,18 @@ def group_total_distance(schools: list):
     return distance
 
 
-def group_sagarin_sum(group):
+def group_sagarin_average(group):
     sagarin_sum = 0.0
     for i in range(len(group)):
-        sagarin_sum += group[i].get_detail("sagarin2022")
-    return sagarin_sum
+        sagarin_sum += group[i].get_detail("sagarin")
+    return sagarin_sum / len(group)
+
 
 def group_sagarin_difference(group):
     sagarin_difference = 0.0
     for i in range(len(group)):
         for j in range(i, len(group)):
-            sagarin_difference += abs(group[i].get_detail("sagarin2022") - group[j].get_detail("sagarin2022"))
+            sagarin_difference += abs(group[i].get_detail("sagarin") - group[j].get_detail("sagarin"))
     return sagarin_difference
 
 
