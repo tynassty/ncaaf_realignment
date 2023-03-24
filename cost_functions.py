@@ -4,10 +4,10 @@ import random
 
 def cost_function(state):
     total_distance = state_total_distance(state)
-    # rival_count = state_rival_count(state)
+    rival_count = state_rival_count(state)
     sagarin_difference = state_sagarin_difference(state)
     # print(total_distance, rival_count)
-    return total_distance + (sagarin_difference * 50)
+    return total_distance - (rival_count * 400)
 
 
 def noisy_state_total_distance(state):

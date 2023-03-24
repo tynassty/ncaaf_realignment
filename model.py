@@ -238,6 +238,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     # print([cf.group_sagarin_average(group) for group in current_state])
 
     if create_image:
+        school_count = len(schools)
+        col_count = max(int_div_round_up(int_div_round_up(school_count, k), 2), 2)
         images = []
         for group in current_state:
             group_image_paths = []
@@ -248,11 +250,15 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
                 if not os.path.isfile(image_path):
                     image_path = "images/NCAA.png"
                 group_image_paths.append(image_path)
-            images.append(drawing.group_images_from_paths(group_image_paths, 7))
+            images.append(drawing.group_images_from_paths(group_image_paths, col_count))
         to_show = drawing.group_images(images, 1, group_spacing=0.5)
         to_show.show()
 
     return current_state
+
+
+def int_div_round_up(dividend, divisor):
+    return -(dividend // -divisor)
 
 
 def print_state(result_state):
@@ -323,7 +329,8 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 
 
 if __name__ == "__main__":
-    run_default(create_image=True, max_iter=20000, batch_size=10, buffer=100, show_map=True,
-                f=cf.cost_function, minimize=True, print_freq=100, find_neighbors=random_swap_neighbors)
+    run_default(create_image=True, max_iter=20000, batch_size=3, buffer=500, show_map=True,
+                f=cf.state_rival_count, minimize=False, print_freq=100, find_neighbors=random_swap_neighbors, k=2,
+                show_graph=True)
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
