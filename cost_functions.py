@@ -1,5 +1,6 @@
 import math
 import random
+from School import School
 
 
 def cost_function(state):
@@ -7,7 +8,9 @@ def cost_function(state):
     rival_count = state_rival_count(state)
     sagarin_difference = state_sagarin_difference(state)
     # print(total_distance, rival_count)
-    return total_distance - (rival_count * 400)
+    # score = total_distance - (rival_count * 400)
+    score = total_distance + (sagarin_difference * 100)
+    return score
 
 
 def noisy_state_total_distance(state):
@@ -38,12 +41,11 @@ def one_small_group_cost_function(state):
     return min(costs)
 
 
-def group_rival_count(schools: list):
+def group_rival_count(schools: list[School]):
     count = 0
     for i in range(len(schools)):
         for j in range(len(schools)):
-            if schools[i].is_rival(schools[j]):
-                count += 1
+            count += schools[i].get_rival_weight(schools[j])
     return count
 
 

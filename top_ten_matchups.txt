@@ -1308,31 +1308,3 @@ UMass, Eastern Michigan
 Liberty, Louisiana Monroe
 James Madison, North Carolina
 UTSA, Western Kentucky
-Jacksonville State, Troy
-Jacksonville State, FIU
-Jacksonville State, Louisiana Tech
-Jacksonville State, Middle Tennessee
-Jacksonville State, UTEP
-Jacksonville State, Western Kentucky
-Jacksonville State, Liberty
-Jacksonville State, New Mexico State
-Jacksonville State, Sam Houston
-Jacksonville State, Kennesaw State
-Sam Houston, FIU
-Sam Houston, Louisiana Tech
-Sam Houston, Middle Tennessee
-Sam Houston, UTEP
-Sam Houston, Western Kentucky
-Sam Houston, Liberty
-Sam Houston, New Mexico State
-Sam Houston, Jacksonville State
-Sam Houston, Kennesaw State
-Kennesaw State, FIU
-Kennesaw State, Louisiana Tech
-Kennesaw State, Middle Tennessee
-Kennesaw State, UTEP
-Kennesaw State, Western Kentucky
-Kennesaw State, Liberty
-Kennesaw State, New Mexico State
-Kennesaw State, Sam Houston
-Kennesaw State, Jacksonville State
