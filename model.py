@@ -1,5 +1,6 @@
 # tyler nass
 import copy
+import datetime
 import math
 import os.path
 import random
@@ -139,7 +140,7 @@ def random_swap_neighbors_uneven(state, batch_size=100):
 
 
 def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, buffer=50, minimize=True,
-               batch_size=100, print_freq=10, find_neighbors=random_swap_neighbors, create_image=False):
+               batch_size=100, print_freq=10, generate_neighbors=random_swap_neighbors, create_image=False):
     """
     calculates an optimal solution through a hill climb
     :param create_image: boolean representing whether or not to produce an image of the logos grouped by group
@@ -154,7 +155,7 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     :param minimize: a boolean representing whether the hill climb should minimize (vs maximize)
     :param batch_size: the maximum number of neighbors to generate for each state
     :param print_freq: how often the current state should be printed to the console (iff print_info == True)
-    :param find_neighbors: the function to use to find neighbor states
+    :param generate_neighbors: the function to use to find neighbor states
     :return:
     """
     current_state = initial_state(schools, k)
@@ -171,8 +172,8 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
             if iteration % print_freq == 0:
                 print("iteration:", f"{iteration:04d}", "current cost:", f"{current_cost:,.0f}",
                       "consecutive failures:", f"{consecutive_optimum:03d}")
-                counts = [len(group) for group in current_state]
                 distances = [f"{f([grp]):,.0f}" for grp in current_state]
+                counts = [len(group) for group in current_state]
                 print(distances)
                 print(counts)
 
@@ -181,7 +182,7 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
             for j in range(len(current_state)):
                 costs_to_plot[j].append(f([current_state[j]]))
 
-        neighbor_states = find_neighbors(current_state, batch_size=batch_size)
+        neighbor_states = generate_neighbors(current_state, batch_size=batch_size)
         neighbor_states.append(initial_state(schools, k))
 
         best_state = current_state
@@ -238,23 +239,45 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     # print([cf.group_sagarin_average(group) for group in current_state])
 
     if create_image:
-        school_count = len(schools)
-        col_count = max(int_div_round_up(int_div_round_up(school_count, k), 2), 2)
-        images = []
-        for group in current_state:
-            group_image_paths = []
-            for school in group:
-                image_path = school.get_name()
-                image_path = image_path.replace(" ", "_")
-                image_path = "images/" + image_path + ".png"
-                if not os.path.isfile(image_path):
-                    image_path = "images/NCAA.png"
-                group_image_paths.append(image_path)
-            images.append(drawing.group_images_from_paths(group_image_paths, col_count))
-        to_show = drawing.group_images(images, 1, group_spacing=0.5)
-        to_show.show()
+        create_and_save_image(current_state, display=False, save=True)
 
     return current_state
+
+
+def create_and_save_image(state, display=True, save=True):
+    school_count = sum(len(group) for group in state)
+    k = len(state)
+    col_count = max(int_div_round_up(int_div_round_up(school_count, k), 2), 2)
+    images = []
+
+    for group in state:
+        group_image_paths = []
+        for school in group:
+            image_path = school.get_name()
+            image_path = image_path.replace(" ", "_")
+            image_path = "images/" + image_path + ".png"
+            if not os.path.isfile(image_path):
+                image_path = "images/NCAA.png"
+            group_image_paths.append(image_path)
+        images.append(drawing.group_images_from_paths(group_image_paths, col_count))
+    final_image = drawing.group_images(images, 1, group_spacing=0.5)
+
+    if display:
+        final_image.show()
+
+    if save:
+        width = final_image.width // 5
+        height = final_image.height // 5
+        final_image.resize((width, height))
+
+        current_datetime = datetime.datetime.now()
+        current_datetime_str = str(current_datetime).replace(" ", "_").replace(":", "-").replace(".", "-")
+        image_filename = f"image_{current_datetime_str}.png"
+        image_path = os.path.join("C:/Users/Tyler/OneDrive/Desktop/ncaaf_realign_gen", image_filename)
+        final_image.save(image_path)
+        return image_path
+
+    return ""
 
 
 def int_div_round_up(dividend, divisor):
@@ -306,7 +329,7 @@ def run_full():
 
     result_state = hill_climb(schools, k, cf.cost_function, max_iter=100, buffer=1, show_map=True,
                               show_graph=True, print_info=True, minimize=True, print_freq=1,
-                              find_neighbors=random_swap_neighbors_all)
+                              generate_neighbors=random_swap_neighbors_all)
     print_state(result_state)
 
 
@@ -324,13 +347,18 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 
     result_state = hill_climb(schools, k, f, max_iter=max_iter, buffer=buffer, show_map=show_map,
                               show_graph=show_graph, print_info=print_info, minimize=minimize, batch_size=batch_size,
-                              print_freq=print_freq, create_image=create_image, find_neighbors=find_neighbors)
+                              print_freq=print_freq, create_image=create_image, generate_neighbors=find_neighbors)
     print_state(result_state)
 
 
 if __name__ == "__main__":
-    run_default(create_image=True, max_iter=20000, batch_size=3, buffer=500, show_map=True,
-                f=cf.cost_function, minimize=True, print_freq=100, find_neighbors=random_swap_neighbors, k=7,
-                show_graph=False)
+    # run_default(create_image=True, max_iter=20000, batch_size=100, buffer=200, show_map=False,
+                # f=cf.cost_function, minimize=True, print_freq=100, find_neighbors=random_swap_neighbors, k=17,
+                # show_graph=True)
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
+    schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
+    k = 67
+    result_state = hill_climb(schools, k, cf.cost_function, print_freq=100, buffer=1, max_iter=20000,
+                              create_image=True, batch_size=50, show_map=True, show_graph=True)
+    print_state(result_state)

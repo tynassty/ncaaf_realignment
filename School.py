@@ -42,6 +42,6 @@ class School:
     def get_detail(self, detail_name):
         return self.details.get(detail_name)
 
-    def __str__(self):
+    def __repr__(self):
         return self.name
 

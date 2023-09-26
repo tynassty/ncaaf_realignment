@@ -1,15 +1,24 @@
 import math
 import random
+
+import numpy as np
+
 from School import School
 
 
 def cost_function(state):
-    total_distance = state_total_distance(state)
+    total_distance = state_cost_by_function(state, group_avg_distance)
     rival_count = state_rival_count(state)
     sagarin_difference = state_sagarin_difference(state)
-    # print(total_distance, rival_count)
-    # score = total_distance - (rival_count * 400)
-    score = total_distance + (sagarin_difference * 100)
+    # distance avg start = ~735,000     total=8,816,172
+    # rival avg start = ~110            total=1,309
+    # sagarin avg start = ~10,300       total=122,478
+    # score = (sagarin_difference/260) + (total_distance/73500) - (rival_count/21)
+
+    # This works well:
+    # score = (10*sagarin_difference) + total_distance
+
+    score = -rival_count
     return score
 
 
@@ -76,6 +85,20 @@ def group_total_distance(schools: list):
     return distance
 
 
+def group_avg_distance(schools: list):
+    """
+    takes a list of schools and calculates the average location. It then calculates the average distance to the center.
+    :param schools:
+    :return: average distance to center point.
+    """
+    center_point_lat = np.mean([school.latitude for school in schools])
+    center_point_lon = np.mean([school.longitude for school in schools])
+    distance = 0.0
+    for school in schools:
+        distance += great_circle_distance(school.latitude, school.longitude, center_point_lat, center_point_lon)
+    return distance
+
+
 def group_sagarin_average(group):
     sagarin_sum = 0.0
     for i in range(len(group)):
@@ -99,6 +122,13 @@ def state_cost_by_function(state, group_cost_function):
     total_cost = 0
     for group in state:
         total_cost += group_cost_function(group)
+    return total_cost
+
+
+def state_sq_cost_by_function(state, group_cost_function):
+    total_cost = 0
+    for group in state:
+        total_cost += group_cost_function(group) ** 2
     return total_cost
 
 
