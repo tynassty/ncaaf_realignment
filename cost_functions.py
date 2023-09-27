@@ -1,5 +1,6 @@
 import math
 import random
+from typing import List
 
 import numpy as np
 
@@ -8,8 +9,10 @@ from School import School
 
 def cost_function(state):
     total_distance = state_cost_by_function(state, group_avg_distance)
-    rival_count = state_rival_count(state)
-    sagarin_difference = state_sagarin_difference(state)
+    # rival_count = state_rival_count(state)
+    # sagarin_difference = state_cost_by_function(state, group_sagarin_difference)
+    sagarin_difference = state_cost_by_function(state, group_sagarin_variation)
+
     # distance avg start = ~735,000     total=8,816,172
     # rival avg start = ~110            total=1,309
     # sagarin avg start = ~10,300       total=122,478
@@ -18,7 +21,9 @@ def cost_function(state):
     # This works well:
     # score = (10*sagarin_difference) + total_distance
 
-    score = -rival_count
+    score = (88*sagarin_difference) + total_distance
+
+    # score = total_distance
     return score
 
 
@@ -106,12 +111,24 @@ def group_sagarin_average(group):
     return sagarin_sum / len(group)
 
 
-def group_sagarin_difference(group):
+def group_sagarin_difference(group: List[School]):
     sagarin_difference = 0.0
     for i in range(len(group)):
         for j in range(i, len(group)):
             sagarin_difference += abs(group[i].get_detail("sagarin") - group[j].get_detail("sagarin"))
     return sagarin_difference
+
+
+def group_sagarin_variation(group: List[School]):
+    sagarin_sum = 0.0
+    for school in group:
+        sagarin_sum += school.get_detail("sagarin")
+    sagarin_average = sagarin_sum / len(group)
+
+    sagarin_variation = 0.0
+    for school in group:
+        sagarin_variation += abs(school.get_detail("sagarin") - sagarin_average)
+    return sagarin_variation
 
 
 def state_sagarin_difference(state):

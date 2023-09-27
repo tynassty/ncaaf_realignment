@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import cost_functions as cf
 import drawing
 from School import School
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 
 def create_schools(schools_file, rivals_file=None, return_dict=False):
@@ -244,6 +244,22 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
     return current_state
 
 
+def text_to_image(text: str):
+    image_size = 768
+    font_size = 24
+    image = Image.new('RGB', (image_size, image_size), 'white')
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype("arial.ttf", font_size)
+
+    text_width, text_height = draw.textsize(text, font=font)
+    x = (image_size - text_width) / 2
+    y = (image_size - text_height) / 2
+
+    draw.text((x, y), text, fill='black', font=font)
+
+    return image
+
+
 def create_and_save_image(state, display=True, save=True):
     school_count = sum(len(group) for group in state)
     k = len(state)
@@ -266,9 +282,9 @@ def create_and_save_image(state, display=True, save=True):
         final_image.show()
 
     if save:
-        width = final_image.width // 5
-        height = final_image.height // 5
-        final_image.resize((width, height))
+        width = final_image.width // 10
+        height = final_image.height // 10
+        final_image = final_image.resize((width, height))
 
         current_datetime = datetime.datetime.now()
         current_datetime_str = str(current_datetime).replace(" ", "_").replace(":", "-").replace(".", "-")
@@ -357,8 +373,9 @@ if __name__ == "__main__":
                 # show_graph=True)
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
-    schools = create_schools("ncaaf.txt", "top_ten_matchups.txt")
-    k = 67
-    result_state = hill_climb(schools, k, cf.cost_function, print_freq=100, buffer=1, max_iter=20000,
-                              create_image=True, batch_size=50, show_map=True, show_graph=True)
+
+    schools = create_schools("ncaaf2.txt")
+    k = 10
+    result_state = hill_climb(schools, k, cf.cost_function, print_freq=100, buffer=500, max_iter=20000,
+                              create_image=True, batch_size=5, show_map=True, show_graph=True)
     print_state(result_state)
