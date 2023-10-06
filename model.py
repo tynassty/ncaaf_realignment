@@ -17,8 +17,12 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
     f = open(schools_file)
     for line in f:
         line = line.split(", ")
+        line[-1] = line[-1][:-1]
         school = School(line[0], float(line[1]), float(line[2]))
-        school.add_detail("sagarin", float(line[3][:-1]))
+        school.add_detail("sagarin", float(line[3]))
+        school.add_detail("public", True if line[4] == "1" else False)
+        school.add_detail("HBCU", True if line[5] == "1" else False)
+        school.add_detail("R1", True if line[6] == "1" else False)
         list_of_schools.append(school)
         dict_of_schools.update({school.get_name(): school})
     f.close()
@@ -41,11 +45,6 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
 def initial_state(schools, k):
     random.shuffle(schools)
     return divide_list_evenly(schools, k)
-    # state = [[] for _ in range(k)]
-    # for school in schools:
-    #     group = random.randint(0, k-1)
-    #     state[group].append(school)
-    # return state
 
 
 def divide_list_evenly(lst, k):
@@ -91,6 +90,31 @@ def random_swap_neighbors(state, batch_size=100):
             swaps += 1
     # print(swaps)
     return neighbor_states
+
+
+def random_swap_neighbors_gen(state):
+    k = len(state)
+
+    swaps_order = []
+
+    for i in range(k):
+        for j in range(i + 1, k):
+            for ii in range(len(state[i])):
+                for jj in range(len(state[j])):
+                    swaps_order.append((i, j, ii, jj))
+
+    # print(len(swaps_order))
+    random.shuffle(swaps_order)
+
+    for i, j, ii, jj in swaps_order:
+        neighbor_state = copy.deepcopy(state)
+        temp1 = neighbor_state[i].pop(ii)
+        temp2 = neighbor_state[j].pop(jj)
+        neighbor_state[j].append(temp1)
+        neighbor_state[i].append(temp2)
+        yield neighbor_state
+
+    yield "over"
 
 
 def random_swap_neighbors_all(state, batch_size=None):
@@ -214,25 +238,10 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         print("Hill climb concluded")
 
     if show_graph:
-        plt.figure(figsize=(10, 5))
-        for index in range(len(costs_to_plot)):
-            plt.plot(x_axis, costs_to_plot[index], label="group "+str(index))
-        plt.title("cost per school by iteration")
-        plt.legend()
-        plt.show()
+        show_graph_f(costs_to_plot, x_axis)
 
     if show_map:
-        plt.figure(figsize=(10, 5))
-        for index in range(len(current_state)):
-            grp = current_state[index]
-            lat = [sch.get_latitude() for sch in grp]
-            lon = [sch.get_longitude() for sch in grp]
-            plt.plot(lon, lat, 'o', label=str(index))
-        plt.title("map by conference")
-        plt.legend()
-        plt.xlim([-160, -65])
-        plt.ylim([20, 50])
-        plt.show()
+        show_map_f(current_state)
 
     # print([cf.group_sagarin_average(group) for group in current_state])
     current_state = sorted(current_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
@@ -242,6 +251,125 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         create_and_save_image(current_state, display=False, save=True)
 
     return current_state
+
+
+def show_map_f(current_state):
+    plt.figure(figsize=(10, 5))
+    for index in range(len(current_state)):
+        grp = current_state[index]
+        lat = [sch.get_latitude() for sch in grp]
+        lon = [sch.get_longitude() for sch in grp]
+        plt.plot(lon, lat, 'o', label=str(index))
+    plt.title("map by conference")
+    plt.legend()
+    plt.xlim([-160, -65])
+    plt.ylim([20, 50])
+    plt.show()
+
+
+def show_graph_f(costs_to_plot, x_axis):
+    plt.figure(figsize=(10, 5))
+    for index in range(len(costs_to_plot)):
+        plt.step(x_axis, costs_to_plot[index], label="group " + str(index))
+    plt.title("cost per school by iteration")
+    plt.legend()
+    plt.show()
+
+
+def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, minimize=True,
+                      max_batch_size=1000, print_freq=10, create_image=False):
+    """
+    calculates an optimal solution through a hill climb. even greedier than a hill climb inherently is. rather than
+    evaluating a set of neighbor states and picking the best, it simply evaluates one at a time. if a state improves
+    upon the current state even marginally, it chooses that state.
+    :param create_image: boolean representing whether or not to produce an image of the logos grouped by group
+    :param schools: a list of schools
+    :param k: the number of groups to divide the schools into
+    :param f: the maximization function to use
+    :param max_iter: the maximum number of iterations to do
+    :param print_info: a boolean representing whether to print information about the run to the console
+    :param show_graph: a boolean representing whether to display a graph of the progression of costs
+    :param show_map: a boolean representing whether to display a map of the optimal groups
+    :param minimize: a boolean representing whether the hill climb should minimize (vs maximize)
+    :param print_freq: how often the current state should be printed to the console (iff print_info == True)
+    :return:
+    """
+    best_state = initial_state(schools, k)
+    best_cost = f(best_state)
+
+    iteration = 0
+
+    x_axis = []
+    costs_to_plot = [[] for _ in range(k)]
+    finished = False
+
+    total_indexes = 0
+    while iteration < max_iter and not finished:
+
+        if print_info:
+            if iteration % print_freq == 0:
+                if iteration != 0:
+                    x = total_indexes/iteration
+                else:
+                    x = 1
+                print("iteration:", f"{iteration:04d}", "--- current cost:", f"{best_cost:,.0f}",
+                      "--- evals performed:", f"{total_indexes:,.0f}", "--- eval/iter:", f"{x:,.2f}")
+                distances = [f"{f([grp]):,.0f}" for grp in best_state]
+                counts = [len(group) for group in best_state]
+                print(distances)
+                print(counts)
+
+        if show_graph:
+            # x_axis.append(iteration)
+            x_axis.append(datetime.datetime.now())
+            for j in range(len(best_state)):
+                costs_to_plot[j].append(f([best_state[j]]))
+
+        neighbor_states_gen = random_swap_neighbors_gen(best_state)
+
+        improved = False
+        index = 0
+        while not improved and not finished:
+            if index > max_batch_size:
+                print("Batch size exceeded")
+                finished = True
+                break
+            neighbor_state = next(neighbor_states_gen)
+            if neighbor_state == "over":
+                print("Local optimum reached")
+                finished = True
+                break
+            neighbor_cost = f(neighbor_state)
+            if minimize:
+                if neighbor_cost < best_cost:
+                    best_state = neighbor_state
+                    best_cost = neighbor_cost
+                    improved = True
+            else:
+                if neighbor_cost > best_cost:
+                    best_state = neighbor_state
+                    best_cost = neighbor_cost
+                    improved = True
+            index += 1
+            total_indexes += 1
+
+        iteration += 1
+
+    if iteration <= max_iter:
+        print("Hill climb concluded")
+
+    if show_graph:
+        show_graph_f(costs_to_plot, x_axis)
+
+    if show_map:
+        show_map_f(best_state)
+
+    best_state = sorted(best_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
+
+    if create_image:
+        create_and_save_image(best_state, display=False, save=True)
+
+    return best_state
 
 
 def text_to_image(text: str):
@@ -374,8 +502,17 @@ if __name__ == "__main__":
     # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
     # print(rsnu)
 
-    schools = create_schools("ncaaf2.txt")
-    k = 10
-    result_state = hill_climb(schools, k, cf.cost_function, print_freq=100, buffer=500, max_iter=20000,
-                              create_image=True, batch_size=5, show_map=True, show_graph=True)
+    schools = create_schools("ncaaf2.txt", rivals_file="rivalries.txt")
+    k = 131
+
+    # result_state = hill_climb(schools, k, cf.cost_function, print_freq=1, buffer=0, max_iter=1000,
+    #                           create_image=True, batch_size=500, show_map=True, show_graph=True)
+    # print_state(result_state)
+
+    result_state = hill_climb_greedy(schools, k, cf.cost_function, print_freq=1, max_iter=1000, create_image=True,
+                                     max_batch_size=33800, show_map=True, show_graph=True)
     print_state(result_state)
+
+    # initial_state = initial_state(schools, k)
+    # neighbors_gen = random_swap_neighbors_gen(initial_state)
+    # print(len(list(neighbors_gen)))

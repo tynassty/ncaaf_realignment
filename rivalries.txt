@@ -1,107 +1,149 @@
-Middle Tennessee, Western Kentucky
+Air Force, Army
 Air Force, Colorado State
 Air Force, Hawaii
+Air Force, Navy
 Akron, Kent State
+Akron, Youngstown State
+Alabama A&M, Alabama State
+Alabama, Auburn
 Alabama, Clemson
 Alabama, Florida
 Alabama, Georgia
 Alabama, LSU
+Alabama, Mississippi State
 Alabama, Ole Miss
 Alabama, Penn State
+Alabama, Tennessee
+Albany (NY), Stony Brook
+Alcorn State, Jackson State
+Appalachian State, Georgia Southern
 Appalachian State, Marshall
-Washington, Washington State
+Arizona, Arizona State
 Arizona, New Mexico
+Arizona, Texas Tech
+Arkansas State, Memphis
 Arkansas, LSU
+Arkansas, Missouri
 Arkansas, Ole Miss
 Arkansas, Texas
+Arkansas, Texas A&M
 Arkansas, Texas Tech
 Army, Navy
 Army, Notre Dame
 Auburn, Clemson
 Auburn, Florida
+Auburn, Georgia
 Auburn, Georgia Tech
+Auburn, LSU
 Auburn, Ole Miss
 Auburn, Tennessee
 Auburn, Tulane
-Pittsburgh, West Virginia
+Ball State, Indiana State
 Ball State, Northern Illinois
-Alabama, Mississippi State
-Nevada, UNLV
-Cincinnati, Miami (OH)
-Marshall, Ohio
-Southern Miss, Tulane
-South Alabama, Troy
-Middle Tennessee, Troy
-LSU, Tulane
-Arkansas, Missouri
-New Mexico State, UTEP
-Baylor, Texas A&M
-Miami (OH), Ohio
-Utah, Utah State
-North Carolina, South Carolina
-Louisiana, Louisiana Monroe
 Baylor, TCU
+Baylor, Texas A&M
 Baylor, Texas Tech
-Oklahoma, Oklahoma State
-California, Stanford
-San Jose State, Stanford
-Memphis, Southern Miss
+Bethune-Cookman, Florida A&M
 Boise State, Fresno State
 Boise State, Nevada
-Colorado State, Wyoming
-Kansas, Missouri
 Boston College, Clemson
+Boston College, Holy Cross
+Boston College, Notre Dame
 Boston College, Syracuse
 Boston College, UMass
 Boston College, Virginia Tech
 Bowling Green, Kent State
 Bowling Green, Toledo
-Utah State, Wyoming
+Brown, Rhode Island
+Butler, Valparaiso
+BYU, Utah
 BYU, Utah State
+Cal Poly, UC Davis
+California, Stanford
 California, UCLA
+Central Arkansas, McNeese State
+Central Conn. State, Sacred Heart
 Central Michigan, Eastern Michigan
 Central Michigan, Western Michigan
 Cincinnati, Louisville
 Cincinnati, Memphis
+Cincinnati, Miami (OH)
+Cincinnati, Pittsburgh
 Cincinnati, UCF
 Cincinnati, West Virginia
-Georgia, Georgia Tech
+Citadel, Furman
+Citadel, VMI
+Citadel, Wofford
 Clemson, Florida State
 Clemson, Georgia
 Clemson, Georgia Tech
+Clemson, NC State
+Clemson, South Carolina
 Coastal Carolina, Liberty
+Colgate, Cornell
+Colgate, Syracuse
+Colorado State, Wyoming
+Colorado, Colorado State
 Colorado, Nebraska
-Maryland, Navy
-Appalachian State, Georgia Southern
-Auburn, Georgia
-Arizona, Arizona State
+Colorado, Utah
+Columbia, Cornell
+Columbia, Fordham
+Cornell, Dartmouth
+Cornell, Pennsylvania
+Dartmouth, Harvard
+Dartmouth, New Hampshire
+Delaware, Delaware State
+Delaware, Lehigh
+Delaware, Villanova
+Delaware, William & Mary
+Duke, NC State
 Duke, North Carolina
+Duke, Wake Forest
 East Carolina, Marshall
 East Carolina, NC State
-Mississippi State, Ole Miss
-Iowa State, Kansas State
+Eastern Illinois, Illinois State
+Eastern Kentucky, Morehead State
+Eastern Kentucky, Western Kentucky
+Eastern Michigan, Western Michigan
+Eastern Washington, Montana
+Eastern Washington, Portland State
+FIU, Florida Atlantic
+Florida State, Miami (FL)
+Florida State, Virginia
 Florida, Florida State
 Florida, Georgia
 Florida, LSU
 Florida, Miami (FL)
 Florida, Tennessee
-Florida State, Miami (FL)
-Florida State, Virginia
-Boston College, Notre Dame
+Fordham, Holy Cross
 Fresno State, Hawaii
 Fresno State, San Diego State
 Fresno State, San Jose State
-Marshall, West Virginia
+Furman, Wofford
+Georgia Southern, Georgia State
+Georgia Tech, Tennessee
+Georgia Tech, Vanderbilt
+Georgia Tech, Virginia Tech
+Georgia, Georgia Tech
 Georgia, South Carolina
 Georgia, Tennessee
 Georgia, Vanderbilt
-Georgia Tech, Tennessee
-Georgia Tech, Vanderbilt
+Grambling, Prairie View A&M
+Grambling, Southern U.
+Hampton, Howard
+Hampton, Norfolk State
+Harvard, Pennsylvania
+Harvard, Princeton
+Harvard, Yale
+Hawaii, San Jose State
 Hawaii, Wyoming
-BYU, Utah
 Houston, Rice
 Houston, Texas Tech
 Houston, Tulsa
+Howard, Morgan State
+Idaho, Idaho State
+Idaho, Montana
+Idaho, Washington State
 Illinois, Michigan
 Illinois, Missouri
 Illinois, Northwestern
@@ -110,51 +152,96 @@ Illinois, Purdue
 Indiana, Kentucky
 Indiana, Michigan State
 Indiana, Purdue
+Iowa State, Kansas State
 Iowa State, Missouri
 Iowa, Iowa State
 Iowa, Minnesota
 Iowa, Nebraska
 Iowa, Wisconsin
-Alabama, Auburn
-Kansas, Nebraska
+Jackson State, Southern U.
+James Madison, Old Dominion
 Kansas State, Nebraska
+Kansas, Kansas State
+Kansas, Missouri
+Kansas, Nebraska
 Kentucky, Louisville
 Kentucky, Tennessee
 Kentucky, Vanderbilt
-Penn State, Pittsburgh
+Lafayette, Lehigh
+Lamar, Louisiana
+Lamar, McNeese State
+Louisiana Monroe, Louisiana Tech
+Louisiana Monroe, Northwestern State
+Louisiana Tech, Northwestern State
+Louisiana Tech, Southern Miss
+Louisiana, Louisiana Monroe
 Louisiana, Louisiana Tech
-Louisiana Tech, Louisiana Monroe
+Louisiana, McNeese State
+Louisiana, SE Louisiana
 Louisville, Memphis
 LSU, Mississippi State
-LSU, Texas A&M
 LSU, Ole Miss
+LSU, Texas A&M
+LSU, Tulane
+Maine, New Hampshire
+Marshall, Ohio
+Marshall, West Virginia
+Maryland, Navy
 Maryland, Penn State
 Maryland, Virginia
 Maryland, West Virginia
+McNeese State, Northwestern State
+Memphis, Ole Miss
+Memphis, Southern Miss
+Miami (FL), Miami (OH)
 Miami (FL), Nebraska
 Miami (FL), Virginia Tech
+Miami (OH), Ohio
 Michigan State, Notre Dame
 Michigan State, Penn State
 Michigan, Michigan State
 Michigan, Minnesota
 Michigan, Northwestern
 Michigan, Notre Dame
+Michigan, Ohio State
 Michigan, Penn State
-Memphis, Ole Miss
+Middle Tennessee, Troy
+Middle Tennessee, Western Kentucky
 Minnesota, Nebraska
 Minnesota, Penn State
 Minnesota, Wisconsin
+Mississippi State, Ole Miss
 Missouri, Nebraska
 Missouri, Oklahoma
 Missouri, South Carolina
-Georgia Southern, Georgia State
-Navy, SMU
+Montana, Montana State
+Morgan State, Towson
+Murray State, Western Kentucky
+N.C. A&T, NC Central
+N.C. A&T, SC State
 Navy, Notre Dame
+Navy, SMU
+NC State, North Carolina
 NC State, Wake Forest
 Nebraska, Oklahoma
 Nebraska, Wisconsin
-North Carolina, NC State
+Nevada, UNLV
+New Mexico State, UTEP
+New Mexico, New Mexico State
+Nicholls State, Northwestern State
+Nicholls State, SE Louisiana
+Nicholls State, Texas State
+Norfolk State, Old Dominion
+North Carolina, South Carolina
+North Carolina, Virginia
 North Carolina, Wake Forest
+North Dakota State, South Dakota State
+North Dakota, North Dakota State
+North Dakota, South Dakota
+North Texas, SMU
+Northern Arizona, Southern Utah
+Northwestern State, SE Louisiana
+Northwestern State, Stephen F. Austin
 Northwestern, Notre Dame
 Notre Dame, Pittsburgh
 Notre Dame, Purdue
@@ -162,47 +249,58 @@ Notre Dame, Stanford
 Notre Dame, USC
 Ohio State, Penn State
 Oklahoma State, Tulsa
+Oklahoma, Oklahoma State
+Oklahoma, Texas
 Ole Miss, Tulane
 Ole Miss, Vanderbilt
+Oregon State, Washington
+Oregon State, Washington State
 Oregon, Oregon State
 Oregon, Washington
-Arkansas State, Memphis
-Clemson, South Carolina
+Oregon, Washington State
+Penn State, Pittsburgh
 Penn State, Syracuse
 Penn State, Temple
 Penn State, West Virginia
+Pennsylvania, Princeton
 Pittsburgh, Syracuse
-Oklahoma, Texas
+Pittsburgh, West Virginia
+Prairie View A&M, Texas Southern
+Princeton, Yale
+Rhode Island, UConn
 Rice, SMU
 Rice, Texas
-New Mexico, New Mexico State
-Louisiana Tech, Southern Miss
-Cincinnati, Pittsburgh
-Colorado, Colorado State
-James Madison, Old Dominion
-Colorado, Utah
-North Texas, SMU
-Florida Atlantic, FIU
+Richmond, VMI
+Richmond, William & Mary
+Sacramento State, UC Davis
+Sam Houston State, Stephen F. Austin
+San Jose State, Stanford
 SMU, TCU
-North Carolina, Virginia
-Arkansas, Texas A&M
+South Alabama, Troy
+South Carolina, Tennessee
+South Dakota, South Dakota State
+South Florida, UCF
+Southern Miss, Tulane
+Southern Utah, Weber State
 Stanford, USC
-Kansas, Kansas State
 Syracuse, West Virginia
 TCU, Texas
 TCU, Texas A&M
 TCU, Texas Tech
-Georgia Tech, Virginia Tech
+Temple, Villanova
+Tennessee State, Tennessee Tech
+Tennessee State, Tennessee-Martin
+Tennessee Tech, Tennessee-Martin
 Tennessee, Vanderbilt
 Texas A&M, Texas Tech
 Texas, Texas A&M
 Texas, Texas Tech
-Clemson, NC State
-Michigan, Ohio State
-Alabama, Tennessee
-Auburn, LSU
-UConn, UMass
 UCLA, USC
+UConn, UMass
+Utah State, Wyoming
+Utah, Utah State
+Virginia Tech, VMI
 Virginia Tech, West Virginia
 Virginia, Virginia Tech
-UCF, South Florida
+VMI, William & Mary
+Washington, Washington State
