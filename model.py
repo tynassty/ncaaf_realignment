@@ -274,6 +274,11 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
 
 
 def show_map_f(current_state):
+    """
+    plots each school by its latitude and longitude. currently, does so on a simple pyplot graph
+    :param current_state: a list of conferences, each being a list of School objects
+    :return: none
+    """
     plt.figure(figsize=(10, 5))
     for index in range(len(current_state)):
         grp = current_state[index]
@@ -288,6 +293,11 @@ def show_map_f(current_state):
 
 
 def show_3d_map_f(current_state):
+    """
+    plots each school by its latitude and longitude, as well as by its sagarin rating
+    :param current_state: a list of conferences, each being a list of School objects
+    :return: none
+    """
     plt.figure()
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -307,6 +317,13 @@ def show_3d_map_f(current_state):
 
 
 def show_graph_f(costs_to_plot, x_axis):
+    """
+    a simple helper function to graph costs over time
+    :param costs_to_plot: a list of lists, where the outer lists represent each conference and the inner lists represent
+    the progression of the cost associated with that conference over each step of the hill climb
+    :param x_axis: the graph's x axis (either the step numbers or the datetime of each step)
+    :return: none
+    """
     plt.figure(figsize=(10, 5))
     for index in range(len(costs_to_plot)):
         plt.step(x_axis, costs_to_plot[index], label="group " + str(index))
@@ -415,23 +432,14 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
     return best_state
 
 
-def text_to_image(text: str):
-    image_size = 768
-    font_size = 24
-    image = Image.new('RGB', (image_size, image_size), 'white')
-    draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("arial.ttf", font_size)
-
-    text_width, text_height = draw.textsize(text, font=font)
-    x = (image_size - text_width) / 2
-    y = (image_size - text_height) / 2
-
-    draw.text((x, y), text, fill='black', font=font)
-
-    return image
-
-
 def create_and_save_image(state, display=True, save=True):
+    """
+    a function to create and save an image showing each school's logo arranged into the generated conferences
+    :param state: a list of conferences, each being a list of School objects
+    :param display: a boolean flag representing whether to display the created image
+    :param save: a boolean flag representing whether to save the created image
+    :return:
+    """
     school_count = sum(len(group) for group in state)
     k = len(state)
     col_count = max(int_div_round_up(int_div_round_up(school_count, k), 2), 2)
@@ -468,15 +476,26 @@ def create_and_save_image(state, display=True, save=True):
 
 
 def int_div_round_up(dividend, divisor):
+    """
+    Divides the dividend by the divisor and rounds up to the nearest integer value
+    :param dividend: The number to be divided
+    :param divisor: The number to divide by
+    :return: The result of the division rounded up to the nearest integer
+    """
     return -(dividend // -divisor)
 
 
 def print_state(result_state):
+    """
+    Print the names of schools in each group within the result state
+    :param result_state: a list of conferences, each being a list of School objects
+    :return: none
+    """
     for i in range(len(result_state)):
         group = result_state[i]
         print("\nGROUP " + str(i) + ":")
         school_name_list = []
-        school_name_list.sort()
+        # school_name_list.sort()
         for school in group:
             school_name_list.append(school.get_name())
         print(school_name_list)
