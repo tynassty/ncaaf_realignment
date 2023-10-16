@@ -559,7 +559,7 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 
 if __name__ == "__main__":
 
-    schools = create_schools("ncaaf2.txt", rivals_file="knowrivalry.txt")
+    schools = create_schools("ncaaf.txt", rivals_file="knowrivalry.txt")
     k = 10
 
     result_state = hill_climb_greedy(schools, k, cf.cost_function, print_freq=1, max_iter=1000  , create_image=True,
