@@ -8,27 +8,17 @@ from School import School
 
 
 def cost_function(state):
-    # total_distance = state_cost_by_function(state, group_avg_distance)
-    rival_count = state_rival_count(state)
-    # sagarin_difference = state_cost_by_function_and_detail(state, group_detail_difference, "sagarin")
-    public_difference = state_cost_by_function_and_detail(state, group_detail_difference, "public")
-    hbcu_difference = state_cost_by_function_and_detail(state, group_detail_difference, "HBCU")
-    r1_difference = state_cost_by_function_and_detail(state, group_detail_difference, "R1")
+    total_distance = state_cost_by_function(state, group_avg_distance)
+    sagarin_difference = state_cost_by_function_and_detail(state, group_detail_difference, "sagarin")
+    # rival_count = state_rival_count(state)
+    # public_difference = state_cost_by_function_and_detail(state, group_detail_difference, "public")
+    # hbcu_difference = state_cost_by_function_and_detail(state, group_detail_difference, "HBCU")
+    # r1_difference = state_cost_by_function_and_detail(state, group_detail_difference, "R1")
 
-    # distance avg start = ~735,000     total=8,816,172
-    # rival avg start = ~110            total=1,309
-    # sagarin avg start = ~10,300       total=122,478
-    # score = (sagarin_difference/260) + (total_distance/73500) - (rival_count/21)
-
-    # This works well:
-    # score = (10*sagarin_difference) + total_distance
-
-    # score = (41250*sagarin_difference) + total_distance
-
-    # score = total_distance + (42 * sagarin_variation)
-    # score = total_distance + (10 * sagarin_difference) - (100 * rival_count)
-    # score = total_distance + (5.5 * sagarin_difference) - (100 * rival_count) + (100 * public_difference)
-    score = public_difference + hbcu_difference + r1_difference - rival_count
+    # likemindedness = hbcu_difference + r1_difference - (10 * rival_count)
+    # score = total_distance + (5.5 * sagarin_difference) + (100 * likemindedness)
+    # score = total_distance + (3 * sagarin_difference) - (10 * rival_count)
+    score = total_distance + (2 * sagarin_difference)
     return score
 
 

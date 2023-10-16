@@ -31,9 +31,11 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
         f = open(rivals_file)
         for line in f:
             line = line.split(", ")
+            line[-1] = line[-1][:-1]
             school = dict_of_schools.get(line[0])
-            rival = dict_of_schools.get(line[1][:-1])
-            school.add_rival(rival)
+            rival = dict_of_schools.get(line[1])
+            weight = float(line[2])
+            school.add_rival(rival, weight=weight)
         f.close()
 
     if return_dict:
@@ -94,25 +96,43 @@ def random_swap_neighbors(state, batch_size=100):
 
 def random_swap_neighbors_gen(state):
     k = len(state)
-
+    max_size = max(len(lst) for lst in state)
     swaps_order = []
 
     for i in range(k):
         for j in range(i + 1, k):
             for ii in range(len(state[i])):
                 for jj in range(len(state[j])):
-                    swaps_order.append((i, j, ii, jj))
+                    swaps_order.append(("even", i, j, ii, jj))
 
-    # print(len(swaps_order))
+    for i in range(len(state)):
+        if len(state[i]) == max_size:
+            jrange = list(range(len(state)))
+            random.shuffle(jrange)
+            for j in jrange:
+                if len(state[j]) < max_size:
+                    irange = list(range(len(state[i])))
+                    random.shuffle(irange)
+                    for ii in irange:
+                        swaps_order.append(("uneven", i, j, ii))
+
     random.shuffle(swaps_order)
 
-    for i, j, ii, jj in swaps_order:
-        neighbor_state = copy.deepcopy(state)
-        temp1 = neighbor_state[i].pop(ii)
-        temp2 = neighbor_state[j].pop(jj)
-        neighbor_state[j].append(temp1)
-        neighbor_state[i].append(temp2)
-        yield neighbor_state
+    for swap_order in swaps_order:
+        if swap_order[0] == "even":
+            i, j, ii, jj = swap_order[1], swap_order[2], swap_order[3], swap_order[4]
+            neighbor_state = copy.deepcopy(state)
+            temp1 = neighbor_state[i].pop(ii)
+            temp2 = neighbor_state[j].pop(jj)
+            neighbor_state[j].append(temp1)
+            neighbor_state[i].append(temp2)
+            yield neighbor_state
+        else:
+            i, j, ii = swap_order[1], swap_order[2], swap_order[3]
+            neighbor_state = copy.deepcopy(state)
+            temp = neighbor_state[i].pop(ii)
+            neighbor_state[j].append(temp)
+            yield neighbor_state
 
     yield "over"
 
@@ -264,6 +284,25 @@ def show_map_f(current_state):
     plt.legend()
     plt.xlim([-160, -65])
     plt.ylim([20, 50])
+    plt.show(block=False)
+
+
+def show_3d_map_f(current_state):
+    plt.figure()
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    for index in range(len(current_state)):
+        grp = current_state[index]
+        lat = [sch.get_latitude() for sch in grp]
+        lon = [sch.get_longitude() for sch in grp]
+        sag = [sch.get_detail("sagarin") for sch in grp]
+        ax.scatter(lon, lat, sag, marker='o')
+
+    ax.set_xlabel('Latitude')
+    ax.set_ylabel('Longitude')
+    ax.set_zlabel('Sagarin rating')
+    ax.set_ylim(10, 60)
+    ax.set_xlim(-160, -60)
     plt.show()
 
 
@@ -276,8 +315,8 @@ def show_graph_f(costs_to_plot, x_axis):
     plt.show()
 
 
-def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, minimize=True,
-                      max_batch_size=1000, print_freq=10, create_image=False):
+def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, show_3d_map=False,
+                      minimize=True, max_batch_size=1000, print_freq=10, create_image=False):
     """
     calculates an optimal solution through a hill climb. even greedier than a hill climb inherently is. rather than
     evaluating a set of neighbor states and picking the best, it simply evaluates one at a time. if a state improves
@@ -290,6 +329,7 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
     :param print_info: a boolean representing whether to print information about the run to the console
     :param show_graph: a boolean representing whether to display a graph of the progression of costs
     :param show_map: a boolean representing whether to display a map of the optimal groups
+    :param show_3d_map: a boolean representing whether to display a 3d map of the optimal groups
     :param minimize: a boolean representing whether the hill climb should minimize (vs maximize)
     :param print_freq: how often the current state should be printed to the console (iff print_info == True)
     :return:
@@ -363,6 +403,9 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
 
     if show_map:
         show_map_f(best_state)
+
+    if show_3d_map:
+        show_3d_map_f(best_state)
 
     best_state = sorted(best_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
 
@@ -496,23 +539,10 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 
 
 if __name__ == "__main__":
-    # run_default(create_image=True, max_iter=20000, batch_size=100, buffer=200, show_map=False,
-                # f=cf.cost_function, minimize=True, print_freq=100, find_neighbors=random_swap_neighbors, k=17,
-                # show_graph=True)
-    # rsnu = random_swap_neighbors_uneven([[1, 2, 3], [4, 5], [6, 7]])
-    # print(rsnu)
 
-    schools = create_schools("ncaaf2.txt", rivals_file="rivalries.txt")
-    k = 131
+    schools = create_schools("ncaaf2.txt", rivals_file="knowrivalry.txt")
+    k = 10
 
-    # result_state = hill_climb(schools, k, cf.cost_function, print_freq=1, buffer=0, max_iter=1000,
-    #                           create_image=True, batch_size=500, show_map=True, show_graph=True)
-    # print_state(result_state)
-
-    result_state = hill_climb_greedy(schools, k, cf.cost_function, print_freq=1, max_iter=1000, create_image=True,
-                                     max_batch_size=33800, show_map=True, show_graph=True)
+    result_state = hill_climb_greedy(schools, k, cf.cost_function, print_freq=1, max_iter=1000  , create_image=True,
+                                     max_batch_size=33856, show_map=True, show_3d_map=True, show_graph=True)
     print_state(result_state)
-
-    # initial_state = initial_state(schools, k)
-    # neighbors_gen = random_swap_neighbors_gen(initial_state)
-    # print(len(list(neighbors_gen)))
