@@ -94,7 +94,7 @@ def random_swap_neighbors(state, batch_size=100):
     return neighbor_states
 
 
-def random_swap_neighbors_gen(state):
+def random_swap_neighbors_gen(state, allow_uneven=True):
     k = len(state)
     max_size = max(len(lst) for lst in state)
     swaps_order = []
@@ -105,16 +105,17 @@ def random_swap_neighbors_gen(state):
                 for jj in range(len(state[j])):
                     swaps_order.append(("even", i, j, ii, jj))
 
-    for i in range(len(state)):
-        if len(state[i]) == max_size:
-            jrange = list(range(len(state)))
-            random.shuffle(jrange)
-            for j in jrange:
-                if len(state[j]) < max_size:
-                    irange = list(range(len(state[i])))
-                    random.shuffle(irange)
-                    for ii in irange:
-                        swaps_order.append(("uneven", i, j, ii))
+    if allow_uneven:
+        for i in range(len(state)):
+            if len(state[i]) == max_size:
+                jrange = list(range(len(state)))
+                random.shuffle(jrange)
+                for j in jrange:
+                    if len(state[j]) < max_size:
+                        irange = list(range(len(state[i])))
+                        random.shuffle(irange)
+                        for ii in irange:
+                            swaps_order.append(("uneven", i, j, ii))
 
     random.shuffle(swaps_order)
 
@@ -264,12 +265,21 @@ def hill_climb(schools, k, f, max_iter=100, print_info=True, show_graph=False, s
         show_map_f(current_state)
 
     # print([cf.group_sagarin_average(group) for group in current_state])
-    current_state = sorted(current_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
+    current_state = sort_state(current_state)
     # print([cf.group_sagarin_average(group) for group in current_state])
 
     if create_image:
         create_and_save_image(current_state, display=False, save=True)
 
+    return current_state
+
+
+def sort_state(current_state):
+    new_state = []
+    for conference in current_state:
+        new_state.append(sorted(conference, key=lambda school: school.get_name()))
+
+    current_state = sorted(new_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
     return current_state
 
 
@@ -332,15 +342,14 @@ def show_graph_f(costs_to_plot, x_axis):
     plt.show()
 
 
-def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=False, show_map=False, show_3d_map=False,
-                      minimize=True, max_batch_size=1000, print_freq=10, create_image=False):
+def hill_climb_greedy(state, f, max_iter=100, print_info=True, show_graph=False, show_map=False, show_3d_map=False,
+                      minimize=True, max_batch_size=1000, print_freq=10, create_image=False, allow_uneven=True):
     """
     calculates an optimal solution through a hill climb. even greedier than a hill climb inherently is. rather than
     evaluating a set of neighbor states and picking the best, it simply evaluates one at a time. if a state improves
     upon the current state even marginally, it chooses that state.
+    :param state: the initial starting state. a list of lists of School objects.
     :param create_image: boolean representing whether or not to produce an image of the logos grouped by group
-    :param schools: a list of schools
-    :param k: the number of groups to divide the schools into
     :param f: the maximization function to use
     :param max_iter: the maximum number of iterations to do
     :param print_info: a boolean representing whether to print information about the run to the console
@@ -349,15 +358,16 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
     :param show_3d_map: a boolean representing whether to display a 3d map of the optimal groups
     :param minimize: a boolean representing whether the hill climb should minimize (vs maximize)
     :param print_freq: how often the current state should be printed to the console (iff print_info == True)
+    :param allow_uneven: a boolean representing whether uneven swaps should be allowed
     :return:
     """
-    best_state = initial_state(schools, k)
+    best_state = state
     best_cost = f(best_state)
 
     iteration = 0
 
     x_axis = []
-    costs_to_plot = [[] for _ in range(k)]
+    costs_to_plot = [[] for _ in range(len(state))]
     finished = False
 
     total_indexes = 0
@@ -382,7 +392,7 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
             for j in range(len(best_state)):
                 costs_to_plot[j].append(f([best_state[j]]))
 
-        neighbor_states_gen = random_swap_neighbors_gen(best_state)
+        neighbor_states_gen = random_swap_neighbors_gen(best_state, allow_uneven=allow_uneven)
 
         improved = False
         index = 0
@@ -415,6 +425,8 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
     if iteration <= max_iter:
         print("Hill climb concluded")
 
+    print_state(best_state)
+
     if show_graph:
         show_graph_f(costs_to_plot, x_axis)
 
@@ -424,7 +436,7 @@ def hill_climb_greedy(schools, k, f, max_iter=100, print_info=True, show_graph=F
     if show_3d_map:
         show_3d_map_f(best_state)
 
-    best_state = sorted(best_state, key=lambda group: cf.group_sagarin_average(group), reverse=True)
+    best_state = sort_state(best_state)
 
     if create_image:
         create_and_save_image(best_state, display=False, save=True)
@@ -560,8 +572,11 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 if __name__ == "__main__":
 
     schools = create_schools("ncaaf.txt", rivals_file="knowrivalry.txt")
-    k = 10
+    # k = 10
 
-    result_state = hill_climb_greedy(schools, k, cf.cost_function, print_freq=1, max_iter=1000  , create_image=True,
+    state = initial_state(schools, k=13)
+    print_state(state)
+
+    result_state = hill_climb_greedy(state, cf.cost_function, print_freq=1, max_iter=1000, create_image=True,
                                      max_batch_size=33856, show_map=True, show_3d_map=True, show_graph=True)
-    print_state(result_state)
+    # print_state(result_state)

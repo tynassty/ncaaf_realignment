@@ -18,7 +18,7 @@ def cost_function(state):
     # likemindedness = hbcu_difference + r1_difference - (10 * rival_count)
     # score = total_distance + (5.5 * sagarin_difference) + (100 * likemindedness)
     # score = total_distance + (3 * sagarin_difference) - (10 * rival_count)
-    score = total_distance + (2 * sagarin_difference)
+    score = total_distance + (4 * sagarin_difference)
     return score
 
 

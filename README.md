@@ -30,6 +30,7 @@ The key features and components of this project include:
         - All rivalries in which one school's respondents give 10+ points to a given rival are included, and rivalries are weighted by the number of rivalry points assigned.
 3. **Hill-Climbing Algorithm**
    - The project uses a hill-climbing algorithm to optimize conferences.
+   - [Read more](documentation/model.md)
 
 ## Getting Started
 
