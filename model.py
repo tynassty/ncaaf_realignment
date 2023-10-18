@@ -11,19 +11,30 @@ from School import School
 from PIL import Image, ImageDraw, ImageFont
 
 
-def create_schools(schools_file, rivals_file=None, return_dict=False):
-    list_of_schools = []
+def create_schools(schools_file, rivals_file=None):
     dict_of_schools = {}
     f = open(schools_file)
+
+    header = next(f).strip().split(", ")
+    print(header)
+
     for line in f:
         line = line.split(", ")
         line[-1] = line[-1][:-1]
         school = School(line[0], float(line[1]), float(line[2]))
-        school.add_detail("sagarin", float(line[3]))
-        school.add_detail("public", True if line[4] == "1" else False)
-        school.add_detail("HBCU", True if line[5] == "1" else False)
-        school.add_detail("R1", True if line[6] == "1" else False)
-        list_of_schools.append(school)
+
+        for i in range(3, len(header)):
+            if line[i] == "1":
+                school.add_detail(header[i], True)
+            elif line[i] == "0":
+                school.add_detail(header[i], False)
+            else:
+                try:
+                    value_as_float = float(line[i])
+                    school.add_detail(header[i], value_as_float)
+                except ValueError:
+                    print(f"Invalid value at index {i}: {line[i]}")
+
         dict_of_schools.update({school.get_name(): school})
     f.close()
 
@@ -38,10 +49,7 @@ def create_schools(schools_file, rivals_file=None, return_dict=False):
             school.add_rival(rival, weight=weight)
         f.close()
 
-    if return_dict:
-        return dict_of_schools
-    else:
-        return list_of_schools
+    return list(dict_of_schools.values())
 
 
 def initial_state(schools, k):
@@ -572,11 +580,14 @@ def run_default(k=10, f=cf.cost_function, max_iter=2000, buffer=200, show_map=Fa
 if __name__ == "__main__":
 
     schools = create_schools("ncaaf.txt", rivals_file="knowrivalry.txt")
+
+    for school in schools:
+        print(school.get_detail("HBCU"))
     # k = 10
 
-    state = initial_state(schools, k=13)
-    print_state(state)
-
-    result_state = hill_climb_greedy(state, cf.cost_function, print_freq=1, max_iter=1000, create_image=True,
-                                     max_batch_size=33856, show_map=True, show_3d_map=True, show_graph=True)
+    # state = initial_state(schools, k=13)
+    # print_state(state)
+    #
+    # result_state = hill_climb_greedy(state, cf.cost_function, print_freq=1, max_iter=1000, create_image=True,
+    #                                  max_batch_size=33856, show_map=True, show_3d_map=True, show_graph=True)
     # print_state(result_state)
