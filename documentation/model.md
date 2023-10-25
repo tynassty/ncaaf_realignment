@@ -9,7 +9,7 @@
       1. [create_schools](#function-create_schools)
       2. [divide_list_evenly](#function-divide_list_evenly)
    2. [Hill Climbing](#hill-climbing)
-      2. hill_climb_greedy
+      1. [hill_climb_greedy](#function-hill_climb_greedy)
    3. [Neighbor State Generation](#neighbor-state-generation)
       1. random_swap_neighbors_gen
    4. [Visualization](#visualization)
