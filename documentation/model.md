@@ -9,13 +9,7 @@
    2. [Hill Climbing](#hill-climbing)
    3. [Neighbor State Generation](#neighbor-state-generation)
    4. [Visualization](#visualization)
-      1. show_map_f
-      2. show_3d_map_f
-      3. show_graph_f
-      4. create_and_save_image
-      5. print_state
    5. [Utility](#utility)
-      1. int_div_round_up
 
 ## Libraries and Imports
 
@@ -103,5 +97,7 @@ This function performs a search for an optimum solution through a hill climbing 
 #### Function `print_state`
 
 ### Utility
+
+#### Function `int_div_round_up`
 
 #### Function `divide_list_evenly`
