@@ -182,7 +182,7 @@ def show_graph_f(costs_to_plot, x_axis):
     plt.show()
 
 
-def hill_climb_greedy(state, f, max_iter=100, print_info=True, show_graph=False, show_map=False, show_3d_map=False,
+def hill_climb_greedy(state, f, max_iter=1000, print_info=True, show_graph=False, show_map=False, show_3d_map=False,
                       minimize=True, max_batch_size=1000, print_freq=10, create_image=False, allow_uneven=True):
     """
     calculates an optimal solution through a hill climb. even greedier than a hill climb inherently is. rather than
