@@ -53,6 +53,12 @@ def create_schools(schools_file, rivals_file=None):
 
 
 def divide_list_evenly(lst, k):
+    """
+    Divide a list into k evenly-sized (plus remainder) groups.
+    :param lst: The list to be divided.
+    :param k: The number of groups to divide into.
+    :return: A list of k groups containing elements from the original list.
+    """
     n = len(lst)
     group_size = n // k
     remainder = n % k
